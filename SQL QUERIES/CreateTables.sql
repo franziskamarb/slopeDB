@@ -13,6 +13,8 @@ CREATE TABLE IF NOT EXISTS public."EMPLOYEE"
     "Instructor_level" character varying,
     "Street" character varying,
     "House_num" character varying,
+    "City" character varying,
+    "Country" character varying,
     "Post_code" bigint,
     "Birthdate" date,
     "Age" bigint,
@@ -41,6 +43,8 @@ CREATE TABLE IF NOT EXISTS public."STUDENT"
     "Sex" character varying,
     "Street" character varying,
     "House_num" character varying,
+    "City" character varying,
+    "Country" character varying,
     "Post-code" bigint,
     "Accomodation" character varying,
     "Ski_id" character varying,
@@ -61,6 +65,8 @@ CREATE TABLE IF NOT EXISTS public."ACCOMODATION"
     "Type" character varying,
     "Street" character varying,
     "House_num" character varying,
+    "City" character varying,
+    "Country" character varying,
     "Post_code" character varying,
     PRIMARY KEY ("Accomodation_id")
 );
