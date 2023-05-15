@@ -1,0 +1,22 @@
+INSERT INTO public."SHUTTLE"(
+	"Shuttle_name", "Type", "Start_location", "End_location", "Capacity", "Area_id")
+	VALUES ('Fellhorn I', 'bus', 'Fellhorn valley station', 'Oberstdorf Busstation', '50', ''),
+		   ('Fellhorn II', 'bus', 'Oberstdorf Busstation', 'Fellhorn valley station', '50', ''),
+		   ('Kanzelwand I', 'bus', 'Kanzelwand valley station', 'Riezlern Post', '50', ''),
+		   ('Kanzelwand II', 'bus', 'Riezlern Post', 'Kanzelwand valley station', '50', ''),
+		   ('Ifen I', 'bus', 'Ifen valley station', 'Riezlern Post', '50', ''),
+		   ('Ifen II', 'bus', 'Riezlern Post', 'Ifen valley station', '50', ''),
+		   ('Walmendingerhorn I', 'bus', 'Walmendingerhorn valley station', 'Riezlern Post', '50', ''),
+		   ('Walmendingerhorn II', 'bus', 'Riezlern Post', 'Walmendingerhorn valley station', '50', ''),
+		   ('Heuberg I', 'bus', 'Heuberg valley station', 'Riezlern Post', '50', ''),
+		   ('Heuberg II', 'bus', 'Riezlern Post', 'Heuberg valley station', '50', ''),
+		   ('Nebelhorn I', 'bus', 'Nebelhorn valley station', 'Oberstdorf Busstation', '50', ''),
+		   ('Nebelhorn II', 'bus', 'Oberstdorf Busstation', 'Fellhorn valley station', '50', ''),
+		   ('Söllereck I', 'bus', 'Söllereck valley station', 'Oberstdorf Busstation', '50', ''),
+		   ('Söllereck II', 'bus', 'Oberstdorf Busstation', 'Söllereck valley station', '50', ''),
+		   ('Sölli I', 'bus', 'Söllereck valley station', 'Kanzelwand valley station', '20', ''),
+		   ('Sölli II', 'bus', 'Kanzelwand valley station', 'Söllereck valley station', '20', ''),
+		   ('Parsenn I', 'bus', 'Söllereck mountain station', 'Ifen valley station', '20', ''),
+		   ('Parsenn II', 'bus', 'Ifen valley station', 'Söllereck mountain station', '20', ''),
+		   ('Nebel I', 'bus', 'Nebelhorn valley station', 'Fellhorn valley station', '20', ''),
+		   ('Nebel II', 'bus', 'Fellhorn valley station', 'Nebelhorn valley station', '20', '');
