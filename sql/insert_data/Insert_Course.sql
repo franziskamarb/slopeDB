@@ -1,0 +1,20 @@
+INSERT INTO public."COURSE"(
+	"Course_id", "Course_level", "Start_date", "End_date", "Area")
+	VALUES ('dec_I', 'beginner', '2022-12-01', '2022-12-31', 'Söllereck'),
+		   ('dec_II', 'advanced', '2022-12-01', '2022-12-31', 'Fellhorn'),
+		   ('dec_III', 'expert', '2022-12-01', '2022-12-31', 'Nebelhorn'),
+		   ('jan_I', 'beginner', '2023-01-01', '2023-01-31', 'Söllereck'),
+		   ('jan_II', 'advanced', '2023-01-01', '2023-01-31', 'Kanzelwand'),
+		   ('jan_III', 'expert', '2023-01-01', '2023-01-31', 'Nebelhorn'),
+		   ('feb_I', 'beginner', '2023-02-01', '2023-02-28', 'Söllereck'),
+		   ('feb_II', 'advanced', '2023-02-01', '2023-02-28', 'Kanzelwand'),
+		   ('feb_III', 'expert', '2023-02-01', '2023-02-28', 'Nebelhorn'),
+		   ('feb_IV', 'expert', '2023-02-01', '2023-02-28', 'Walmendingerhorn'),
+		   ('mar_I', 'beginner', '2023-03-01', '2023-03-31', 'Heuberg'),
+		   ('mar_II', 'advanced', '2023-03-01', '2023-03-31', 'Kanzelwand'),
+		   ('mar_III', 'expert', '2023-03-01', '2023-03-31', 'Ifen'),
+		   ('mar_IV', 'expert', '2023-03-01', '2023-03-31', 'Walmendingerhorn'),
+		   ('apr_I', 'beginner', '2023-04-01', '2023-04-30', 'Heuberg'),
+		   ('apr_II', 'advanced', '2023-04-01', '2023-04-30', 'Kanzelwand'),
+		   ('apr_III', 'expert', '2023-04-01', '2023-04-30', 'Ifen'),
+		   ('apr_IV', 'expert', '2023-04-01', '2023-04-30', 'Walmendingerhorn');
