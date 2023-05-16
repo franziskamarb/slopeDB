@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    database:
+        image: 'postgres:12.3'
+        ports:
+            - '5433:5432'
+        container_name: postgres-slopeDB
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: 1234
+            POSTGRES_DB: slopeDB
+        volumes:
+            - ../sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 1234:8080
+        depends_on:
+            - "database"
