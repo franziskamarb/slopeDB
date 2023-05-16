@@ -77,4 +77,4 @@ INSERT INTO public."POLES"(
 		  ,('P75', 'Leki', '125')
 		  ,('P76', 'Leki', '130')
 		  ,('P77', 'Leki', '130')
-		  ,('P78', 'Leki', '130')
+		  ,('P78', 'Leki', '130');

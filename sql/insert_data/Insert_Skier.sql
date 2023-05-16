@@ -1,5 +1,5 @@
-INSERT INTO public.'SKI'(
-	'Ski_id', 'Modell', 'Brand', 'Length')
+INSERT INTO public."SKI"(
+	"Ski_id", "Modell", "Brand", "Length")
 	VALUES ('SM1', 'RC4 The Curv DTX', 'Fischer', 175),
 		   ('SM2', 'Redster S9', 'Atomic', 160),
 		   ('SM3', 'Deacon 76', 'Völkl', 173),

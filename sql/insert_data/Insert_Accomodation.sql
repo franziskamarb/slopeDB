@@ -20,7 +20,7 @@ INSERT INTO public."ACCOMODATION"(
 		  ,('A18', 'Mountain Dream Apartments', 'Apartment', 'Birgsauer Straße', '22', 'Oberstdorf', 'Germany', '87561')
 		  ,('A19', 'Alpenglühen Hotel', 'Hotel', 'Eggstraße', '18', 'Oberstdorf', 'Germany', '87561')
 		  ,('A20', 'Höllwiesen Haus', 'Guesthouse', 'Kornau-Wanne', '17', 'Oberstdorf', 'Germany', '87561')
-		  ,('A21', 'Alpine Lodge', 'Hotel', 'Fellhornstrasse', '20', 'Oberstdorf', 'Germany', '87561'),
+		  ,('A21', 'Alpine Lodge', 'Hotel', 'Fellhornstrasse', '20', 'Oberstdorf', 'Germany', '87561')
 		  ,('A22', 'Mount View Inn', 'Bed & Breakfast', 'Lorettostrasse', '4', 'Oberstdorf', 'Germany', '87561')
 		  ,('A23', 'Sunny Hillside Chalet', 'Holiday Home', 'Söllereckstrasse', '17', 'Oberstdorf', 'Germany', '87561')
 		  ,('A24', 'Snowy Peak Resort', 'Hotel', 'Waltenbergerstrasse', '21', 'Oberstdorf', 'Germany', '87561')
