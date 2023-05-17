@@ -5,8 +5,8 @@ FROM EMPLOYEE e
 JOIN SALARY s ON e.Salary_group = s.Salary_group
 WHERE e.Job_title = 'Manager';
 
-Description: This query retrieves the first name, last name, and salary of all employees who have the job title "Manager". 
-It combines information from the EMPLOYEE and SALARY tables using a join operation.
+--Description: This query retrieves the first name, last name, and salary of all employees who have the job title "Manager". 
+It combines information from the EMPLOYEE and SALARY tables using a join operation.--
 
 SQL Query_2:
 
