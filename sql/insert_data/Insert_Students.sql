@@ -1,5 +1,4 @@
-INSERT INTO public."STUDENT"(
-	"Student_id", "First_Name", "Last_Name", "Birthdate", "Adult", "Course_type", "Experience_level", "Phonenumber", "Sex", "Street", "House_num", "City", "Country", "Post_code", "Accomodation", "Ski_id", "Helmet_id", "Pole_id", "Arrival_date", "Departure_date")
+INSERT INTO STUDENT
 	VALUES ('S1', 'Emma', 'Müller', '2005-05-21', 'Yes', 'Ski', 'beginner', '0049171123456', 'female', 'Hauptstraße', '5', 'Munich', 'Germany', '80331', '', '', '', '', '2022-12-15', '2022-12-20')
 		  ,('S2', 'Lukas', 'Schmidt', '2006-09-03', 'No', 'Ski', 'beginner', '004913588752', 'male', 'Rathausplatz', '7', 'Salzburg', 'Austria', '5020', '', '', '', '', '2022-12-15', '2022-12-22')
 		  ,('S3', 'Sophie', 'Wagner', '2004-01-11', 'Yes', 'Ski', 'beginner', '0049167589254', 'female', 'Kaiserstraße', '23', 'Vienna', 'Austria', '1010', '', '', '', '', '2022-12-20', '2022-12-26')
