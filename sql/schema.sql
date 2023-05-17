@@ -140,6 +140,6 @@ CREATE TABLE COURSE_STUDENT
 (
     COURSE_Course_id character varying,
     STUDENT_Student_id character varying,
-    FOREIGN KEY (STUDENT_Student_id) REFERENCES STUDENT (Student_id),
-    FOREIGN KEY (COURSE_Course_id) REFERENCES COURSE (Course_id)
+    FOREIGN KEY (COURSE_Course_id) REFERENCES COURSE (Course_id),
+    FOREIGN KEY (STUDENT_Student_id) REFERENCES STUDENT (Student_id)
 );
