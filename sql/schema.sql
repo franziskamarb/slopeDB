@@ -25,6 +25,7 @@ CREATE TABLE EMPLOYEE
     PRIMARY KEY (Employee_id),
     FOREIGN KEY (Salary_group) REFERENCES SALARY(Salary_group)
 );
+
 CREATE TABLE ACCOMODATION
 (
     Accomodation_id character varying NOT NULL,

@@ -6,7 +6,7 @@ INSERT INTO STUDENT
 		  ,('S5', 'Lena', 'Fischer', '2003-12-09', 'Yes', 'Ski', 'advanced', '004917567982', 'female', 'Bahnhofstraße', '10', 'Zell am See', 'Austria', '5700', 'A5', 'SM5', 'H5', 'P5', '2022-12-26', '2023-01-01')
 		  ,('S6', 'Jan', 'Becker', '2002-05-30', 'Yes', 'Ski', 'beginner', '004917382659', 'male', 'Kirchenstraße', '3', 'Garmisch-Partenkirchen', 'Germany', '82467', 'A6', 'SM6', 'H6', 'P6', '2022-12-29', '2023-01-05')
 		  ,('S7', 'Marie', 'Schneider', '2004-09-20', 'Yes', 'Ski', 'advanced', '004913587982', 'female', 'Dorfstraße', '1', 'Saalbach', 'Austria', '5753', 'A7', 'SM7', 'H7', 'P7', '2023-01-02', '2023-01-08')
-                  ,('S8', 'Maximilian', 'Weber', '2005-04-01', 'Yes', 'Ski', 'beginner', '0049167123456', 'male', 'Hauptplatz', '2', 'Innsbruck', 'Austria', '6020', 'A8', 'SM8', 'H8', 'P8', '2023-02-05', '2023-02-15')
+		  ,('S8', 'Maximilian', 'Weber', '2005-04-01', 'Yes', 'Ski', 'beginner', '0049167123456', 'male', 'Hauptplatz', '2', 'Innsbruck', 'Austria', '6020', 'A8', 'SM8', 'H8', 'P8', '2023-02-05', '2023-02-15')
 		  ,('S9', 'Emma', 'Mayer', '2005-03-12', 'Yes', 'Ski', 'beginner', '+4912345678', 'female', 'Amselweg', '14', 'Munich', 'Germany', '80331', 'A9', 'SM9', 'H9', 'P9', '2023-01-12', '2023-01-19')
 		  ,('S10', 'Noah', 'Schmidt', '2013-06-01', 'No', 'Ski', 'beginner', '+4989123456', 'male', 'Salzburgerstraße', '18', 'Salzburg', 'Austria', '5020', 'A10', 'SM10', 'H10', 'P10', '2023-02-02', '2023-02-09')
 		  ,('S11', 'Hannah', 'Weber', '2008-11-22', 'No', 'Ski', 'advanced', '+4989212345', 'female', 'Kirchgasse', '2', 'Innsbruck', 'Austria', '6020', 'A11', 'SM11', 'H11', 'P11', '2023-03-08', '2023-03-15')
