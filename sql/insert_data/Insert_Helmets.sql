@@ -1,5 +1,5 @@
 INSERT INTO public."HELMETS"(
-	"Helemets_id", "Brand", "Size")
+	"Helmet_id", "Brand", "Size")
 	VALUES ('H1', 'Alpina', '47')
 		  ,('H2', 'Alpina', '50')
 		  ,('H3', 'Alpina', '53')
