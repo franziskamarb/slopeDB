@@ -8,7 +8,7 @@ WHERE e.Job_title = 'Manager';
 Description: This query retrieves the first name, last name, and salary of all employees who have the job title "Manager". 
 It combines information from the EMPLOYEE and SALARY tables using a join operation.
 
-SQL Query-2:
+SQL Query_2:
 
 SELECT s.Name, COUNT(*) AS Total_Students
 FROM STUDENT s
@@ -18,7 +18,7 @@ GROUP BY s.Name;
 Description: This query counts the number of students in each course and displays the course name along with the total number of students. 
 It joins the STUDENT and COURSE_STUDENT tables and groups the results by course name.
 
-SQL Query 3:
+SQL Query_3:
 
 SELECT e.First_Name, e.Last_Name, c.Course_level
 FROM EMPLOYEE e
@@ -28,7 +28,7 @@ WHERE e.Job_title = 'Instructor';
 Description: This query retrieves the first name, last name, and course level of all employees who have the job title "Instructor". 
 It combines information from the EMPLOYEE and COURSE tables using a join operation.
 
-SQL Query 4:
+SQL Query_4:
 
 SELECT a.Name, COUNT(*) AS Total_Courses
 FROM AREA a
@@ -37,7 +37,7 @@ GROUP BY a.Name;
 Description: This query counts the number of courses in each area and displays the area name along with the total number of courses. 
 It joins the AREA and COURSE tables and groups the results by area name.
 
-SQL Query 5:
+SQL Query_5:
 
 SELECT s.First_Name, s.Last_Name, COUNT(cs.COURSE_Course_id) AS Total_Courses
 FROM STUDENT s
@@ -49,7 +49,7 @@ Description: This query retrieves the first name, last name, and total number of
 It combines information from the STUDENT and COURSE_STUDENT tables using a left join operation and groups the results by first name and last name. 
 The HAVING clause filters the results to display only students with at least 3 courses.
 
-SQL Query 6:
+SQL Query_6:
 
 SELECT e.First_Name, e.Last_Name, AVG(s.Salary) AS Average_Salary
 FROM EMPLOYEE e
@@ -58,7 +58,7 @@ GROUP BY e.First_Name, e.Last_Name;
 Description: This query calculates the average salary for each employee and displays the first name, last name, and average salary. 
 It combines information from the EMPLOYEE and SALARY tables using a join operation and groups the results by first name and last name.
 
-SQL Query 7:
+SQL Query_7:
 
 SELECT a.Name, COUNT(*) AS Total_Employees
 FROM AREA a
