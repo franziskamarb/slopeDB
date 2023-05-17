@@ -1,4 +1,4 @@
-SQL Query-1:
+SQL Query_1:
 
 SELECT e.First_Name, e.Last_Name, s.Salary
 FROM EMPLOYEE e
