@@ -1,5 +1,4 @@
-INSERT INTO public."POLES"(
-	"Poles_id", "Brand", "Length")
+INSERT INTO POLES
 	VALUES ('P1', 'Atomic', '70')
 		  ,('P2', 'Atomic', '70')
 		  ,('P3', 'Atomic', '70')

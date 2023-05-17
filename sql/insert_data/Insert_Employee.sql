@@ -1,5 +1,4 @@
-INSERT INTO public."EMPLOYEE"(
-	"Employee_id", "First_Name", "Last_Name", "Job_title", "Salary_group", "Instructor_level", "Street", "House_num", "Post_code", "Birthdate", "Age", "Sex", "Phonenumber")
+INSERT INTO public."EMPLOYEE"
 	VALUES ('E1', 'Ludwig', 'Maier', 'Ski School Director', 'O', 'DSV Diplom-Instructor', 'Hauptstraße', '1', '87561', '1985-05-10', 36, 'M', '123456789')
 		  ,('E2', 'Anna', 'Huber', 'Ski School Director', 'P', 'DSV Diplom-Instructor', 'Dorfstraße', '5', '87561', '1988-08-20', 33, 'F', '987654321')
 		  ,('E3', 'Simon', 'Schneider', 'Ski Instructor', 'K', 'DSV Diplom-Instructor', 'Bergweg', '10', '87561', '1990-03-15', 31, 'M', '456123789')

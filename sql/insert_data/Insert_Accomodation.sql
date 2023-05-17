@@ -1,5 +1,4 @@
-INSERT INTO public."ACCOMODATION"(
-	"Accomodation_id", "Name", "Type", "Street", "House_num", "City", "Country", "Post_code")
+INSERT INTO ACCOMODATION
 	VALUES ('A1', 'Alpine Lodge', 'Hotel', 'Schönblickstraße', '12', 'Oberstdorf', 'Germany', '87561')
 		  ,('A2', 'Hausberg Chalet', 'Chalet', 'Hausbergweg', '2', 'Oberstdorf', 'Germany', '87561')
 		  ,('A3', 'Majestic Mountainside Inn', 'Inn', 'Alpenstraße', '4', 'Oberstdorf', 'Germany', '87561')

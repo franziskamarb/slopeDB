@@ -1,5 +1,4 @@
-INSERT INTO public."SALARY"(
-	"Salary_group", "Salary")
+INSERT INTO SALARY
 	VALUES ('A', 10.000)
 		  ,('B', 15.000)
 		  ,('C', 20.000)

@@ -1,5 +1,4 @@
-INSERT INTO public."HELMETS"(
-	"Helmet_id", "Brand", "Size")
+INSERT INTO HELMETS
 	VALUES ('H1', 'Alpina', '47')
 		  ,('H2', 'Alpina', '50')
 		  ,('H3', 'Alpina', '53')
@@ -59,5 +58,4 @@ INSERT INTO public."HELMETS"(
 		  ,('H57', 'SCOTT', '53')
 		  ,('H58', 'SCOTT', '56')
 		  ,('H59', 'SCOTT', '59')
-		  ,('H60', 'SCOTT', '61')
-		  ;
+		  ,('H60', 'SCOTT', '61');
