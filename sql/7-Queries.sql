@@ -1,4 +1,4 @@
-SQL Query 1:
+SQL Query-1:
 
 SELECT e.First_Name, e.Last_Name, s.Salary
 FROM EMPLOYEE e
@@ -8,7 +8,7 @@ WHERE e.Job_title = 'Manager';
 Description: This query retrieves the first name, last name, and salary of all employees who have the job title "Manager". 
 It combines information from the EMPLOYEE and SALARY tables using a join operation.
 
-SQL Query 2:
+SQL Query-2:
 
 SELECT s.Name, COUNT(*) AS Total_Students
 FROM STUDENT s
