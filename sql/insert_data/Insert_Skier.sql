@@ -1,4 +1,4 @@
-INSERT INTO public."SKI"
+INSERT INTO SKI
 	VALUES ('SM1', 'RC4 The Curv DTX', 'Fischer', '175'),
 		   ('SM2', 'Redster S9', 'Atomic', '160'),
 		   ('SM3', 'Deacon 76', 'Völkl', '173'),

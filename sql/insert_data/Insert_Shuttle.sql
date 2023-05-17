@@ -1,4 +1,4 @@
-INSERT INTO public."SHUTTLE"
+INSERT INTO SHUTTLE
 	VALUES ('Fellhorn I', 'bus', 'Fellhorn valley station', 'Oberstdorf Busstation', '50', 'GF'),
 		   ('Fellhorn II', 'bus', 'Oberstdorf Busstation', 'Fellhorn valley station', '50', 'GF'),
 		   ('Kanzelwand I', 'bus', 'Kanzelwand valley station', 'Riezlern Post', '50', 'AK'),

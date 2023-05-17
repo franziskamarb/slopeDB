@@ -17,7 +17,7 @@ CREATE TABLE EMPLOYEE
     House_num character varying,
     City character varying,
     Country character varying,
-    Post_code bigint,
+    Post_code character varying,
     Birthdate date,
     Age bigint,
     Sex character varying,

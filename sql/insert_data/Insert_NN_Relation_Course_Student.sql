@@ -1,5 +1,4 @@
-INSERT INTO public."COURSE_STUDENT"(
-	"COURSE_Course_id", "STUDENT_Student_id")
+INSERT INTO COURSE_STUDENT
 	VALUES ('S1', 'Dec_I')
 		  ,('S2', 'Dec_I')
 		  ,('S3', 'Dec_I')
