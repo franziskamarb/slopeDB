@@ -1,4 +1,4 @@
-INSERT INTO STUDENT 
+INSERT INTO STUDENT
 	VALUES ('S1', 'Emma', 'Müller', '2005-05-21', 'Yes', 'Ski', 'beginner', '0049171123456', 'female', 'Hauptstraße', '5', 'Munich', 'Germany', '80331', 'A1', 'SM1', 'H1', 'P1', '2022-12-15', '2022-12-20')
 		  ,('S2', 'Lukas', 'Schmidt', '2006-09-03', 'No', 'Ski', 'beginner', '004913588752', 'male', 'Rathausplatz', '7', 'Salzburg', 'Austria', '5020', 'A2', 'SM2', 'H2', 'P2', '2022-12-15', '2022-12-22')
 		  ,('S3', 'Sophie', 'Wagner', '2004-01-11', 'Yes', 'Ski', 'beginner', '0049167589254', 'female', 'Kaiserstraße', '23', 'Vienna', 'Austria', '1010', 'A3', 'SM3', 'H3', 'P3', '2022-12-20', '2022-12-26')
@@ -37,7 +37,7 @@ INSERT INTO STUDENT
 		  ,('S36', 'Simon', 'Weber', '2003-07-18', 'Yes', 'Ski', 'beginner', '1112223334', 'male', 'Hauptallee', '7', 'Linz', 'Austria', '4020', 'A30', 'SM36', 'H36', 'P36', '2023-01-20', '2023-01-26')
 		  ,('S37', 'Katharina', 'Bauer', '1999-11-27', 'Yes', 'Ski', 'advanced', '2223334445', 'female', 'Rathausplatz', '10', 'Graz', 'Austria', '8010', 'A40', 'SM37', 'H37', 'P37', '2023-01-26', '2023-02-01')
 		  ,('S38', 'Markus', 'Hofmann', '1997-02-14', 'Yes', 'Ski', 'beginner', '7777777777', 'male', 'Hauptstrasse', '23', 'Vienna', 'Austria', '1020', 'A41', 'SM38', 'H38', 'P38', '2023-02-01', '2023-02-06')
-		  ,('S39', 'Hannah', 'Schneider', '1990-08-08', 'Yes', 'Ski', 'expert', '6666666666', 'female', 'Schlossallee', '4', 'Salzburg', 'Austria', '5020', 'A42', 'SM39', 'H39', 'P30', '2023-02-06', '2023-02-12')
+		  ,('S39', 'Hannah', 'Schneider', '1990-08-08', 'Yes', 'Ski', 'expert', '6666666666', 'female', 'Schlossallee', '4', 'Salzburg', 'Austria', '5020', 'A42', 'SM39', 'H39', 'P39', '2023-02-06', '2023-02-12')
 		  ,('S40', 'Tobias', 'Huber', '1987-12-21', 'Yes', 'Ski', 'advanced', '3334445556', 'male', 'Neugasse', '5', 'Munich', 'Germany', '80331', 'A43', 'SM40', 'H40', 'P40', '2023-02-12', '2023-02-18')
 		  ,('S41', 'Sarah', 'Schuster', '1986-06-10', 'Yes', 'Ski', 'beginner', '1231231234', 'female', 'Feldstrasse', '7', 'Innsbruck', 'Austria', '6020', 'A44', 'SM41', 'H41', 'P41', '2023-02-18', '2023-02-24')
 		  ,('S42', 'Elena', 'Mayer', '1990-07-15', 'Yes', 'Ski', 'advanced', '01605536625', 'female', 'Bürgermeister-Rauch-Straße', '29', 'Munich', 'Germany', '80939', 'A45', 'SM42', 'H42', 'P42', '2023-02-16', '2023-02-23')

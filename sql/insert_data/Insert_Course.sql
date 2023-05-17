@@ -1,5 +1,4 @@
 INSERT INTO COURSE
-	"Course_id", "Course_level", "Start_date", "End_date", "Area")
 	VALUES ('dec_I', 'beginner', '2022-12-01', '2022-12-31', 'GS'),
 		   ('dec_II', 'advanced', '2022-12-01', '2022-12-31', 'GF'),
 		   ('dec_III', 'expert', '2022-12-01', '2022-12-31', 'GN'),
