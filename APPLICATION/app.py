@@ -5,6 +5,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
 import os
+from sqlalchemy.ext.automap import automap_base
 
 app = Flask (__name__)
 
@@ -13,18 +14,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class Test(db.Model):
-    __tablename__ = 'test'
+from models import accomodation
 
-    test_id = db.Column(db.String(64), primary_key = True)
-    name = db.Column(db.String(100))
-
-    def json(self):
-        return {'test_id': test_id, 'name': name}
-    
 app.app_context().push()
 db.create_all()
 
 @app.route('/test')
 def index():
-    return f"{Test.query.all()}"
+    return f"results: {len(accomodation.query.order_by(accomodation.name).all())}"

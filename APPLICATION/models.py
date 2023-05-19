@@ -4,8 +4,8 @@ from app import db
 
 
 
-class ACCOMODATION(db.Model):
-    __tablename__ = 'ACCOMODATION'
+class accomodation(db.Model):
+    __tablename__ = 'accomodation'
     accomodation_id = db.Column('accomodation_id', db.String(64), primary_key = True)
     name = db.Column(db.String(100))
     type = db.Column(db.String(100))
