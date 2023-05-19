@@ -5,3 +5,5 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
 import os
+
+print("test")
