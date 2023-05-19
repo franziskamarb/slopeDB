@@ -1,10 +1,21 @@
 version: '3.8'
 
 services:
+    flask_app:
+        container_name: flask_app
+        image: flask:1.0
+        build: .
+        ports:
+            - "4000:4000"
+        environment:
+            - DB_URL=postgresql://postgres:1234@database:5432/slopeDB
+        depends_on:
+            - database
+
     database:
         image: 'postgres:12.3'
         ports:
-            - '5433:5432'
+            - '5432:5432'
         container_name: postgres-slopeDB
         environment:
             POSTGRES_USER: postgres
