@@ -8,6 +8,7 @@ import os
 from sqlalchemy.ext.automap import automap_base
 
 app = Flask (__name__)
+bootstrap = Bootstrap(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://postgres:1234@database:5432/slopeDB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -19,6 +20,13 @@ from models import accomodation
 app.app_context().push()
 db.create_all()
 
-@app.route('/test')
+@app.route('/')
 def index():
-    return f"results: {len(accomodation.query.order_by(accomodation.name).all())}"
+    title="List of employees:"
+    employees = accomodation.query.order_by(accomodation.name.desc()).all()
+    return render_template('accomodations.html', employees=employees)
+
+
+#@app.route('/test')
+#def index():
+#    return f"results: {len(accomodation.query.order_by(accomodation.name).all())}"
