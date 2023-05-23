@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Slope DB{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+  <h1>Students:</h1>
+
+  <button type="button" class="btn btn-secondary" href="/add_student">Add Student</button>
+  <button type="button" class="btn btn-secondary" href="/edit_student">Edit Student</button>
+
+
+  <table class="table table-dark table-striped ">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">First Name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for student in students %}
+      <tr>
+        <td class="emp_name">{{ loop.index }}</td>
+
+        <td class="emp_name">{{student.last_name }}</td>
+        <td class="emp_name">{{student.first_name }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
