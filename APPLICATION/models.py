@@ -105,7 +105,7 @@ class Area(db.Model):
     city = db.Column(db.String)
     name = db.Column(db.String)
     difficulty_level = db.Column(db.String)
-    opening_time = db.Column(db.Time)
+    openting_time = db.Column(db.Time)
     closing_time = db.Column(db.Time)
     magic_carpet = db.Column(db.Boolean)
 

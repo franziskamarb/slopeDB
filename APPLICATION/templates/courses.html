@@ -9,53 +9,382 @@
 
   <button class="btn btn-primary" onclick="window.location.href='/add_student_to_course'">add student to course</button>
 
-    <h1>All Courses</h1>
-  <table class="table table-dark table-striped ">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">ID</th>
-        <th scope="col">City</th>
-        <th scope="col">Country</th>
-        <th scope="col">Name</th>
-        <th scope="col">Level</th>
-        <th scope="col">Start</th>
-        <th scope="col">End</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {% for course in courses %}
-      <tr>
-        <td class="course_name">{{ loop.index }}</td>
-        <td class="course_name">{{ course.course_id }}</td>
-        <td class="course_name">
-          {% for area in areas %}
-            {% if area.area_id == course.area %}
-              {{ area.city }}
-            {% endif %}
-          {% endfor %}
-        </td>
-        <td class="course_name">
-            {% for area in areas %}
-              {% if area.area_id == course.area %}
+  <h1>All Courses</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <h2>Beginner Courses</h2>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Course ID</th>
+              <th scope="col">City</th>
+              <th scope="col">Country</th>
+              <th scope="col">Duration</th>
+              <th scope="col">More Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in course_beginner %}
+            <tr>
+              <td class="course_name">{{ loop.index }}</td>
+              <td class="course_name">{{ course.course_id }}</td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
+                {{ area.city }}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
                 {{ area.country }}
-              {% endif %}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">{{ course.start_date }} - {{ course.end_date }}</td>
+              <td>
+                <button class="btn btn-secondary" data-toggle="modal" data-target="#courseModal{{ course.course_id }}">More Information</button>
+              </td>
+            </tr>
             {% endfor %}
-          </td>
-          <td class="course_name">
-            {% for area in areas %}
-              {% if area.area_id == course.area %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-4">
+        <h2>Advanced Courses</h2>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID</th>
+              <th scope="col">City</th>
+              <th scope="col">Country</th>
+              <th scope="col">Name</th>
+              <th scope="col">Level</th>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col">More Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in course_advanced %}
+            <tr>
+              <td class="course_name">{{ loop.index }}</td>
+              <td class="course_name">{{ course.course_id }}</td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
+                {{ area.city }}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
+                {{ area.country }}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
                 {{ area.name }}
-              {% endif %}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">{{ course.course_level }}</td>
+              <td class="course_name">{{ course.start_date }}</td>
+              <td class="course_name">{{ course.end_date }}</td>
+              <td>
+                <button class="btn btn-secondary" data-toggle="modal" data-target="#courseModal{{ course.course_id }}">More Information</button>
+              </td>
+            </tr>
             {% endfor %}
-          </td>
-        <td class="course_name">{{ course.course_level }}</td>
-        <td class="course_name">{{ course.start_date }}</td>
-        <td class="course_name">{{ course.end_date }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-4">
+        <h2>Expert Courses</h2>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID</th>
+              <th scope="col">City</th>
+              <th scope="col">Country</th>
+              <th scope="col">Name</th>
+              <th scope="col">Start</th>
+              <th scope="col">End</th>
+              <th scope="col">More Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in course_expert %}
+            <tr>
+              <td class="course_name">{{ loop.index }}</td>
+              <td class="course_name">{{ course.course_id }}</td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
+                {{ area.city }}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
+                {{ area.country }}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">
+                {% for area in areas %}
+                {% if area.area_id == course.area %}
+                {{ area.name }}
+                {% endif %}
+                {% endfor %}
+              </td>
+              <td class="course_name">{{ course.start_date }}</td>
+              <td class="course_name">{{ course.end_date }}</td>
+              <td>
+                <button class="btn btn-secondary" data-toggle="modal" data-target="#courseModal{{ course.course_id }}">More Information</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- Modal for Beginner Courses -->
+{% for course in course_beginner %}
+<div class="modal fade" id="courseModal{{ course.course_id }}" tabindex="-1" role="dialog"
+  aria-labelledby="courseModalLabel{{ course.course_id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="courseModalLabel{{ course.course_id }}">Course Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Course ID: {{ course.course_id }}</p>
+        <p>City:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.city }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Country:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.country }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Name:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.name }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Duration: {{ course.start_date }} - {{ course.end_date }}</p>
+        <p>Level: {{ course.course_level }}</p>
+
+        <h1>Students in Course:</h1>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">First Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cs in course_students %}
+            {% if cs.course_course_id == course.course_id %}
+            {% set s_id = cs.student_student_id %}
+            {% for student in students %}
+            {% if s_id == student.student_id %}
+            <tr>
+              <td class="emp_name">{{ loop.index }}</td>
+              <td class="emp_name">{{ student.student_id }}</td>
+              <td class="emp_name">{{ student.last_name }}</td>
+              <td class="emp_name">{{ student.first_name }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- Modal for Advanced Courses -->
+{% for course in course_advanced %}
+<div class="modal fade" id="courseModal{{ course.course_id }}" tabindex="-1" role="dialog"
+  aria-labelledby="courseModalLabel{{ course.course_id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="courseModalLabel{{ course.course_id }}">Course Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Course ID: {{ course.course_id }}</p>
+        <p>City:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.city }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Country:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.country }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Name:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.name }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Duration: {{ course.start_date }} - {{ course.end_date }}</p>
+        <p>Level: {{ course.course_level }}</p>
+
+        <h1>Students in Course:</h1>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">First Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cs in course_students %}
+            {% if cs.course_course_id == course.course_id %}
+            {% set s_id = cs.student_student_id %}
+            {% for student in students %}
+            {% if s_id == student.student_id %}
+            <tr>
+              <td class="emp_name">{{ loop.index }}</td>
+              <td class="emp_name">{{ student.student_id }}</td>
+              <td class="emp_name">{{ student.last_name }}</td>
+              <td class="emp_name">{{ student.first_name }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<!-- Modal for Expert Courses -->
+{% for course in course_expert %}
+<div class="modal fade" id="courseModal{{ course.course_id }}" tabindex="-1" role="dialog"
+  aria-labelledby="courseModalLabel{{ course.course_id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="courseModalLabel{{ course.course_id }}">Course Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Course ID: {{ course.course_id }}</p>
+        <p>City:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.city }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Country:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.country }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Name:
+          {% for area in areas %}
+          {% if area.area_id == course.area %}
+          {{ area.name }}
+          {% endif %}
+          {% endfor %}
+        </p>
+        <p>Duration: {{ course.start_date }} - {{ course.end_date }}</p>
+        <p>Level: {{ course.course_level }}</p>
+
+        <h1>Students in Course:</h1>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">First Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cs in course_students %}
+            {% if cs.course_course_id == course.course_id %}
+            {% set s_id = cs.student_student_id %}
+            {% for student in students %}
+            {% if s_id == student.student_id %}
+            <tr>
+              <td class="emp_name">{{ loop.index }}</td>
+              <td class="emp_name">{{ student.student_id }}</td>
+              <td class="emp_name">{{ student.last_name }}</td>
+              <td class="emp_name">{{ student.first_name }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
 {% endblock %}

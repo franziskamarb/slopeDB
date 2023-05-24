@@ -1,4 +1,4 @@
-from flask import Flask, url_for, render_template, session, redirect, make_response, jsonify
+from flask import Flask, url_for, render_template, session, redirect, make_response, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, DateField
@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 
 db = SQLAlchemy(app)
 
-from models import Student, Accomodation, Ski, Helmet, Pole
+from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent
 
 app.app_context().push()
 db.create_all()
@@ -27,6 +27,7 @@ db.create_all()
 def index():
     title="landing page"
     return render_template('landing_page.html')
+
 
 @app.route('/students', methods=['GET'])
 def students():
@@ -70,9 +71,39 @@ def add_student():
         db.session.commit()
         session['known'] = False
         session['name'] = form.first_name.data
-        return redirect(url_for('index'))
+        return redirect(url_for('students'))
 
     return render_template('add_student.html', form=form)
+
+
+@app.route('/courses', methods=['GET'])
+def courses():
+    course_beginner = Course.query.filter(Course.course_level == "beginner").all()
+    course_advanced = Course.query.filter(Course.course_level == "advanced").all()
+    course_expert = Course.query.filter(Course.course_level == "expert").all()
+    course_students = CourseStudent.query.all()
+    students = Student.query.all()
+    areas = Area.query.all()
+
+    return render_template('courses.html', students=students, course_students=course_students, course_beginner=course_beginner, course_advanced=course_advanced, course_expert=course_expert, areas=areas)
+
+
+@app.route('/add_student_to_course', methods=['GET', 'POST'])
+def add_student_to_course():
+    form = AddStudentCourse()
+    if form.validate_on_submit():
+
+        course = Course(
+            course_id=form.course_id.data,
+            student_id=form.student_id.data
+        )
+        db.session.add(course)
+        db.session.commit()
+        session['known'] = False
+        session['name'] = form.first_name.data
+        return redirect(url_for('courses'))
+    
+    return render_template('add_student_to_course.html', form=form)
 
 #Forms
 class AddStudentForm(FlaskForm):
@@ -123,6 +154,12 @@ class AddStudentForm(FlaskForm):
                            for poles in Pole.query.filter(~Pole.poles_id.in_(db.session.query(Student.pole_id).subquery())).all()
                         ], 
                         validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+
+class AddStudentCourse(FlaskForm):
+    course_id = StringField('Course', validators=[DataRequired()])
+    student_id = StringField('Student', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
