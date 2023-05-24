@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Slope DB{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+  <h1>Courses:</h1>
+
+  <button class="btn btn-primary" onclick="window.location.href='/add_student_to_course'">add student to course</button>
+
+    <h1>All Courses</h1>
+  <table class="table table-dark table-striped ">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">City</th>
+        <th scope="col">Country</th>
+        <th scope="col">Name</th>
+        <th scope="col">Level</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for course in courses %}
+      <tr>
+        <td class="course_name">{{ loop.index }}</td>
+        <td class="course_name">{{ course.course_id }}</td>
+        <td class="course_name">
+          {% for area in areas %}
+            {% if area.area_id == course.area %}
+              {{ area.city }}
+            {% endif %}
+          {% endfor %}
+        </td>
+        <td class="course_name">
+            {% for area in areas %}
+              {% if area.area_id == course.area %}
+                {{ area.country }}
+              {% endif %}
+            {% endfor %}
+          </td>
+          <td class="course_name">
+            {% for area in areas %}
+              {% if area.area_id == course.area %}
+                {{ area.name }}
+              {% endif %}
+            {% endfor %}
+          </td>
+        <td class="course_name">{{ course.course_level }}</td>
+        <td class="course_name">{{ course.start_date }}</td>
+        <td class="course_name">{{ course.end_date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
