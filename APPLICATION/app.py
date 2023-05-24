@@ -6,6 +6,8 @@ from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
 import os
 from sqlalchemy.ext.automap import automap_base
+from datetime import datetime, date
+import random
 
 app = Flask (__name__)
 bootstrap = Bootstrap(app)
@@ -16,7 +18,7 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 
 db = SQLAlchemy(app)
 
-from models import Student, Accomodation, Ski
+from models import Student, Accomodation, Ski, Helmet, Pole
 
 app.app_context().push()
 db.create_all()
@@ -37,27 +39,32 @@ def students():
 def add_student():
     form = AddStudentForm()
     if form.validate_on_submit():
+
+        raw_birthdate = form.birthdate.data
+        raw_arrival = form.arrival_date.data
+        raw_departure = form.departure_date.data
+
         student = Student(
-            student_id="test_id",
+            student_id='s' + str(random.randint(10000, 99999)),
             first_name=form.first_name.data,
             last_name=form.last_name.data,
-            birthdate="2005-05-21",
-            adult=True,
-            course_type="",
-            experience_level="",
-            phonenumber="",
-            sex="",
-            street="",
-            house_num="",
-            city="",
-            country="",
-            post_code=11111,
-            accomodation="A1",
-            ski_id="SM60",
-            helmet_id="H60",
-            pole_id="P60",
-            arrival_date="2005-05-21",
-            departure_date="2005-05-21"
+            birthdate = raw_birthdate.strftime('%Y-%m-%d'),
+            adult = calculate_adult(raw_birthdate),
+            course_type=form.course_type.data,
+            experience_level=form.experience_level.data,
+            phonenumber=form.phonenumber.data,
+            sex=form.sex.data,
+            street=form.street.data,
+            house_num=form.house_num.data,
+            city=form.city.data,
+            country=form.country.data,
+            post_code=form.post_code.data,
+            accomodation=form.accomodation.data,
+            ski_id=form.ski_id.data,
+            helmet_id=form.helmet_id.data,
+            pole_id=form.pole_id.data,
+            arrival_date=raw_arrival.strftime('%Y-%m-%d'),
+            departure_date=raw_departure.strftime('%Y-%m-%d')
         )
         db.session.add(student)
         db.session.commit()
@@ -71,7 +78,7 @@ def add_student():
 class AddStudentForm(FlaskForm):
     first_name = StringField('First name', validators=[DataRequired()])
     last_name = StringField('Last name', validators=[DataRequired()])
-    birthdate = StringField('Birthdate', validators=[DataRequired()])
+    birthdate = DateField('Birthdate', validators=[DataRequired()])  
     course_type = SelectField('Course Type',
                                choices=[('Ski', 'Ski'), ('Snowboard', 'Snowboard')],
                                  validators=[DataRequired()])
@@ -95,12 +102,32 @@ class AddStudentForm(FlaskForm):
                                 ], 
                                 validators=[DataRequired()])
     subquery = db.session.query(Student.ski_id).subquery()
-    ski = SelectField('Ski',
+    ski_id = SelectField('Ski',
                       choices = 
                       [
-                          (ski.ski_id, f"({ski.ski_id}) {ski.brand} - {ski.modell} - Size: {ski.length}")
+                          (ski.ski_id, f"({ski.ski_id}) {ski.brand} - {ski.modell} - Length: {ski.length}")
                            for ski in Ski.query.filter(~Ski.ski_id.in_(subquery)).all()
                         ], 
                         validators=[DataRequired()])
-    
+    helmet_id = SelectField('Helmet',
+                      choices = 
+                      [
+                          (helmet.helmet_id, f"({helmet.helmet_id}) {helmet.brand} - Size: {helmet.size}")
+                           for helmet in Helmet.query.filter(~Helmet.helmet_id.in_(db.session.query(Student.helmet_id).subquery())).all()
+                        ], 
+                        validators=[DataRequired()])
+    pole_id = SelectField('Poles',
+                      choices = 
+                      [
+                          (poles.poles_id, f"({poles.poles_id}) {poles.brand} - Length: {poles.length}")
+                           for poles in Pole.query.filter(~Pole.poles_id.in_(db.session.query(Student.pole_id).subquery())).all()
+                        ], 
+                        validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+
+#Other Functions
+def calculate_adult(birthdate):
+    today = date.today()
+    age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+    return age >= 18
