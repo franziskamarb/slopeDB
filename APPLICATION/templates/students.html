@@ -16,6 +16,9 @@
         <th scope="col">#</th>
         <th scope="col">Last Name</th>
         <th scope="col">First Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Experience</th>
+        <th scope="col"> </th>
       </tr>
     </thead>
 
@@ -26,6 +29,13 @@
 
         <td class="emp_name">{{student.last_name }}</td>
         <td class="emp_name">{{student.first_name }}</td>
+        <td class="emp_name">{{student.city }}</td>
+        <td class="emp_name">{{student.experience_level }}</td>
+        <td class="emp_name">
+          <form action="/delete_student/{{ student.student_id }}" method="post">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

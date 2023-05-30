@@ -17,7 +17,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'hard to guess string'
 
 db = SQLAlchemy(app)
-
 from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent
 
 app.app_context().push()
@@ -44,9 +43,10 @@ def add_student():
         raw_birthdate = form.birthdate.data
         raw_arrival = form.arrival_date.data
         raw_departure = form.departure_date.data
+        s_id = 's' + str(random.randint(10000, 99999))
 
         student = Student(
-            student_id='s' + str(random.randint(10000, 99999)),
+            student_id=s_id,
             first_name=form.first_name.data,
             last_name=form.last_name.data,
             birthdate = raw_birthdate.strftime('%Y-%m-%d'),
@@ -67,13 +67,29 @@ def add_student():
             arrival_date=raw_arrival.strftime('%Y-%m-%d'),
             departure_date=raw_departure.strftime('%Y-%m-%d')
         )
+
+        course_student = CourseStudent(
+            course_course_id = form.course_id.data,
+            student_student_id = s_id
+        )
         db.session.add(student)
+        db.session.add(course_student)
         db.session.commit()
         session['known'] = False
-        session['name'] = form.first_name.data
+        session['name'] = form.first_name.data + ' ' + form.last_name.data
         return redirect(url_for('students'))
-
+    form.update_choices()
     return render_template('add_student.html', form=form)
+
+@app.route('/delete_student/<string:student_id>', methods=['POST'])
+def delete_student(student_id):
+    student = Student.query.get(student_id)
+    if student:
+        CourseStudent.query.filter_by(student_student_id=student_id).delete()
+
+        db.session.delete(student)
+        db.session.commit()
+    return redirect('/students')
 
 
 @app.route('/courses', methods=['GET'])
@@ -93,14 +109,14 @@ def add_student_to_course():
     form = AddStudentCourse()
     if form.validate_on_submit():
 
-        course = Course(
-            course_id=form.course_id.data,
-            student_id=form.student_id.data
+        course_studnet = CourseStudent(
+            course_course_id=form.course_id.data,
+            student_student_id=form.student_id.data
         )
-        db.session.add(course)
+        db.session.add(course_studnet)
         db.session.commit()
         session['known'] = False
-        session['name'] = form.first_name.data
+        session['name'] = form.course_id.data
         return redirect(url_for('courses'))
     
     return render_template('add_student_to_course.html', form=form)
@@ -132,36 +148,63 @@ class AddStudentForm(FlaskForm):
                                     for accomodation in Accomodation.query.all()
                                 ], 
                                 validators=[DataRequired()])
-    subquery = db.session.query(Student.ski_id).subquery()
-    ski_id = SelectField('Ski',
-                      choices = 
-                      [
-                          (ski.ski_id, f"({ski.ski_id}) {ski.brand} - {ski.modell} - Length: {ski.length}")
-                           for ski in Ski.query.filter(~Ski.ski_id.in_(subquery)).all()
-                        ], 
-                        validators=[DataRequired()])
-    helmet_id = SelectField('Helmet',
-                      choices = 
-                      [
-                          (helmet.helmet_id, f"({helmet.helmet_id}) {helmet.brand} - Size: {helmet.size}")
-                           for helmet in Helmet.query.filter(~Helmet.helmet_id.in_(db.session.query(Student.helmet_id).subquery())).all()
-                        ], 
-                        validators=[DataRequired()])
-    pole_id = SelectField('Poles',
-                      choices = 
-                      [
-                          (poles.poles_id, f"({poles.poles_id}) {poles.brand} - Length: {poles.length}")
-                           for poles in Pole.query.filter(~Pole.poles_id.in_(db.session.query(Student.pole_id).subquery())).all()
-                        ], 
-                        validators=[DataRequired()])
+
+    ski_id = SelectField('Ski', choices=[], validators=[DataRequired()])
+    helmet_id = SelectField('Helmet', choices=[], validators=[DataRequired()])
+    pole_id = SelectField('Poles', choices=[], validators=[DataRequired()])
+    course_id = SelectField('Course', 
+                               choices = 
+                               [
+                                   (course.course_id, f"{course.course_id} | {course.course_level} | {course.start_date}-{course.end_date}") 
+                                    for course in Course.query.all()
+                                ], 
+                                validators=[DataRequired()])
+
     submit = SubmitField('Submit')
+
+    def __init__(self, *args, **kwargs):
+        super(AddStudentForm, self).__init__(*args, **kwargs)
+        self.update_choices() 
+
+    def update_choices(self):
+        subquery = db.session.query(Student.ski_id).filter(Student.ski_id.isnot(None)).subquery()
+        self.ski_id.choices = [
+            (ski.ski_id, f"({ski.ski_id}) {ski.brand} - {ski.modell} - Length: {ski.length}")
+            for ski in Ski.query.filter(~Ski.ski_id.in_(subquery)).all()
+        ]
+
+        subquery = db.session.query(Student.helmet_id).filter(Student.helmet_id.isnot(None)).subquery()
+        self.helmet_id.choices = [
+            (helmet.helmet_id, f"({helmet.helmet_id}) {helmet.brand} - Size: {helmet.size}")
+            for helmet in Helmet.query.filter(~Helmet.helmet_id.in_(subquery)).all()
+        ]
+
+        subquery = db.session.query(Student.pole_id).filter(Student.pole_id.isnot(None)).subquery()
+        self.pole_id.choices = [
+            (poles.poles_id, f"({poles.poles_id}) {poles.brand} - Length: {poles.length}")
+            for poles in Pole.query.filter(~Pole.poles_id.in_(subquery)).all()
+        ]
 
 
 class AddStudentCourse(FlaskForm):
-    course_id = StringField('Course', validators=[DataRequired()])
-    student_id = StringField('Student', validators=[DataRequired()])
+    course_id = SelectField('Course', choices=[], validators=[DataRequired()])
+    student_id = SelectField('Student', choices=[], validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+    def __init__(self, *args, **kwargs):
+        super(AddStudentCourse, self).__init__(*args, **kwargs)
+        self.update_choices() 
+
+    def update_choices(self):
+        self.student_id.choices = [
+            (student.student_id, f"({student.student_id}) {student.first_name} {student.last_name}")
+            for student in Student.query.all()
+        ]
+
+        self.course_id.choices = [
+            (course.course_id, f"({course.course_id}) {course.course_id} | {course.start_date} - {course.end_date}")
+            for course in Course.query.all()
+        ]
 
 #Other Functions
 def calculate_adult(birthdate):
