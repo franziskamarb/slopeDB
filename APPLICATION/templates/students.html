@@ -5,7 +5,7 @@
 
 {% block page_content %}
 <div class="page-header">
-  <h1>Students:</h1>
+  <h1>STUDENTS:</h1>
 
   <button class="btn btn-primary" onclick="window.location.href='/add_student'">Add Student</button>
 
@@ -18,7 +18,7 @@
         <th scope="col">First Name</th>
         <th scope="col">City</th>
         <th scope="col">Experience</th>
-        <th scope="col"> </th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
 
@@ -32,7 +32,8 @@
         <td class="emp_name">{{student.city }}</td>
         <td class="emp_name">{{student.experience_level }}</td>
         <td class="emp_name">
-          <form action="/delete_student/{{ student.student_id }}" method="post">
+          <a href="/edit_student/{{ student.student_id }}" class="btn btn-primary btn-sm">Edit</a>
+          <form action="/delete_student/{{ student.student_id }}" method="post" style="display: inline-block;">
             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
           </form>
         </td>

@@ -81,6 +81,7 @@ def add_student():
     form.update_choices()
     return render_template('add_student.html', form=form)
 
+
 @app.route('/delete_student/<string:student_id>', methods=['POST'])
 def delete_student(student_id):
     student = Student.query.get(student_id)
@@ -118,10 +119,43 @@ def add_student_to_course():
         session['known'] = False
         session['name'] = form.course_id.data
         return redirect(url_for('courses'))
-    
+
     return render_template('add_student_to_course.html', form=form)
 
-#Forms
+
+@app.route('/edit_student/<string:student_id>', methods=['GET', 'POST'])
+def edit_student(student_id):
+    student = Student.query.get(student_id)
+    form = EditStudentForm(obj=student)
+    if form.validate_on_submit():
+        student.first_name = form.first_name.data
+        student.last_name = form.last_name.data
+        student.birthdate = form.birthdate.data.strftime('%Y-%m-%d')
+        student.adult = calculate_adult(form.birthdate.data)
+        student.course_type = form.course_type.data
+        student.experience_level = form.experience_level.data
+        student.phonenumber = form.phonenumber.data
+        student.sex = form.sex.data
+        student.street = form.street.data
+        student.house_num = form.house_num.data
+        student.city = form.city.data
+        student.country = form.country.data
+        student.post_code = form.post_code.data
+        student.accomodation = form.accomodation.data
+        student.ski_id = form.ski_id.data
+        student.helmet_id = form.helmet_id.data
+        student.pole_id = form.pole_id.data
+        student.arrival_date = form.arrival_date.data.strftime('%Y-%m-%d')
+        student.departure_date = form.departure_date.data.strftime('%Y-%m-%d')
+        
+        db.session.commit()
+        return redirect(url_for('students'))
+    
+    form.update_choices()
+    return render_template('edit_student.html', form=form)
+
+
+# Forms
 class AddStudentForm(FlaskForm):
     first_name = StringField('First name', validators=[DataRequired()])
     last_name = StringField('Last name', validators=[DataRequired()])
@@ -205,6 +239,80 @@ class AddStudentCourse(FlaskForm):
             (course.course_id, f"({course.course_id}) {course.course_id} | {course.start_date} - {course.end_date}")
             for course in Course.query.all()
         ]
+
+
+class EditStudentForm(FlaskForm):
+    student_id = StringField('Student ID', render_kw={'disabled': True})
+    first_name = StringField('First name', validators=[DataRequired()])
+    last_name = StringField('Last name', validators=[DataRequired()])
+    birthdate = DateField('Birthdate', validators=[DataRequired()])  
+    course_type = SelectField('Course Type',
+                               choices=[('Ski', 'Ski'), ('Snowboard', 'Snowboard')],
+                                 validators=[DataRequired()])
+    experience_level = SelectField('Experience Level', 
+                                   choices=[('beginner', 'Beginner'), ('advanced', 'Advanced'), ('expert', 'Expert')],
+                                   validators=[DataRequired()])
+    phonenumber = StringField('Phonenumber', validators=[DataRequired()])
+    sex = SelectField('Sex', choices=[('male', 'Male'), ('female', 'Female')], validators=[DataRequired()])
+    street = StringField('Street', validators=[DataRequired()])
+    house_num = StringField('House Number', validators=[DataRequired()])
+    city = StringField('City', validators=[DataRequired()])
+    country = StringField('Country', validators=[DataRequired()])
+    post_code = StringField('Post Code', validators=[DataRequired()])
+    accomodation = SelectField('Accomodation', 
+                               choices = 
+                               [
+                                   (accomodation.accomodation_id, f"{accomodation.name} - {accomodation.city}") 
+                                    for accomodation in Accomodation.query.all()
+                                ], 
+                                validators=[DataRequired()])
+    ski_id = SelectField('Ski', choices=[], validators=[DataRequired()])
+    helmet_id = SelectField('Helmet', choices=[], validators=[DataRequired()])
+    pole_id = SelectField('Poles', choices=[], validators=[DataRequired()])
+    arrival_date = DateField('Arrival', validators=[DataRequired()])
+    departure_date = DateField('Departure', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+    def __init__(self, *args, **kwargs):
+        super(EditStudentForm, self).__init__(*args, **kwargs)
+        self.update_choices()
+
+
+    def update_choices(self):
+        student_id = self.student_id.data
+
+        subquery = db.session.query(Student.ski_id).filter(Student.ski_id.isnot(None))
+        self.ski_id.choices = [
+            (ski.ski_id, f"({ski.ski_id}) {ski.brand} - {ski.modell} - Length: {ski.length}")
+            for ski in Ski.query.filter(
+                Ski.ski_id.notin_(subquery)
+            ).union(
+                Ski.query.filter_by(ski_id=Student.query.get(student_id).ski_id)
+            ).order_by(Ski.ski_id).all()
+        ]
+
+        subquery = db.session.query(Student.helmet_id).filter(Student.helmet_id.isnot(None))
+        self.helmet_id.choices = [
+            (helmet.helmet_id, f"({helmet.helmet_id}) {helmet.brand} - Size: {helmet.size}")
+            for helmet in Helmet.query.filter(
+                Helmet.helmet_id.notin_(subquery)
+            ).union(
+                Helmet.query.filter_by(helmet_id=Student.query.get(student_id).helmet_id)
+            ).order_by(Helmet.helmet_id).all()
+        ]
+
+        subquery = db.session.query(Student.pole_id).filter(Student.pole_id.isnot(None))
+        self.pole_id.choices = [
+            (pole.poles_id, f"({pole.poles_id}) {pole.brand} - Length: {pole.length}")
+            for pole in Pole.query.filter(
+                Pole.poles_id.notin_(subquery)
+            ).union(
+                Pole.query.filter_by(poles_id=Student.query.get(student_id).pole_id)
+            ).order_by(Pole.poles_id).all()
+        ]
+
+
+        
 
 #Other Functions
 def calculate_adult(birthdate):
