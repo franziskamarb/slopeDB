@@ -122,6 +122,13 @@ def add_student_to_course():
 
     return render_template('add_student_to_course.html', form=form)
 
+@app.route('/del_student_course/<string:student_id>/<string:course_id>', methods=['POST'])
+def delete_student_course(student_id, course_id):
+    course_student = CourseStudent.query.filter_by(student_student_id=student_id, course_course_id=course_id).first()
+    if course_student:
+        db.session.delete(course_student)
+        db.session.commit()
+    return redirect('/courses')
 
 @app.route('/edit_student/<string:student_id>', methods=['GET', 'POST'])
 def edit_student(student_id):
