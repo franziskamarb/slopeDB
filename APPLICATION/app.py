@@ -68,12 +68,7 @@ def add_student():
             departure_date=raw_departure.strftime('%Y-%m-%d')
         )
 
-        course_student = CourseStudent(
-            course_course_id = form.course_id.data,
-            student_student_id = s_id
-        )
         db.session.add(student)
-        db.session.add(course_student)
         db.session.commit()
         session['known'] = False
         session['name'] = form.first_name.data + ' ' + form.last_name.data
@@ -194,13 +189,6 @@ class AddStudentForm(FlaskForm):
     ski_id = SelectField('Ski', choices=[], validators=[DataRequired()])
     helmet_id = SelectField('Helmet', choices=[], validators=[DataRequired()])
     pole_id = SelectField('Poles', choices=[], validators=[DataRequired()])
-    course_id = SelectField('Course', 
-                               choices = 
-                               [
-                                   (course.course_id, f"{course.course_id} | {course.course_level} | {course.start_date}-{course.end_date}") 
-                                    for course in Course.query.all()
-                                ], 
-                                validators=[DataRequired()])
 
     submit = SubmitField('Submit')
 
