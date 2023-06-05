@@ -142,7 +142,6 @@
 </div>
 
 <!-- Modal for Beginner Courses -->
-<!-- Modal for Beginner Courses -->
 {% for course in course_beginner %}
 <div class="modal fade" id="courseModal{{ course.course_id }}" tabindex="-1" role="dialog"
   aria-labelledby="courseModalLabel{{ course.course_id }}" aria-hidden="true">
@@ -179,6 +178,35 @@
         </p>
         <p>Duration: {{ course.start_date }} - {{ course.end_date }}</p>
         <p>Level: {{ course.course_level }}</p>
+        <h1>Shuttles:</h1>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Shuttle Name</th>
+              <th scope="col">Capacity</th>
+              <th scope="col">Type</th>
+              <th scope="col">Start Location</th>
+              <th scope="col">End Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for area in areas %}
+              {% if area.area_id == course.area %}
+                {% for shuttle in shuttles %}
+                  {% if area.area_id == shuttle.area_id %}
+                    <tr>
+                      <td class="emp_name">{{ shuttle.shuttle_name }}</td>
+                      <td class="emp_name">{{ shuttle.capacity }}</td>
+                      <td class="emp_name">{{ shuttle.type }}</td>
+                      <td class="emp_name">{{ shuttle.start_location }}</td>
+                      <td class="emp_name">{{ shuttle.end_location }}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
 
         <h1>Students in this Course:</h1>
         <table class="table table-dark table-striped">
@@ -188,29 +216,29 @@
               <th scope="col">ID</th>
               <th scope="col">Last Name</th>
               <th scope="col">First Name</th>
-              <th scope="col">Actions</th> <!-- Add Actions column -->
+              <th scope="col">Actions</th> 
             </tr>
           </thead>
           <tbody>
             {% for cs in course_students %}
-            {% if cs.course_course_id == course.course_id %}
-            {% set s_id = cs.student_student_id %}
-            {% for student in students %}
-            {% if s_id == student.student_id %}
-            <tr>
-              <td class="emp_name">{{ loop.index }}</td>
-              <td class="emp_name">{{ student.student_id }}</td>
-              <td class="emp_name">{{ student.last_name }}</td>
-              <td class="emp_name">{{ student.first_name }}</td>
-              <td class="emp_name">
-                <form action="/del_student_course/{{ student.student_id }}/{{ course.course_id}}" method="post" style="display: inline-block;">
-                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
-              </td>
-            </tr>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
+              {% if cs.course_course_id == course.course_id %}
+                {% set s_id = cs.student_student_id %}
+                {% for student in students %}
+                  {% if s_id == student.student_id %}
+                    <tr>
+                      <td class="emp_name">{{ loop.index }}</td>
+                      <td class="emp_name">{{ student.student_id }}</td>
+                      <td class="emp_name">{{ student.last_name }}</td>
+                      <td class="emp_name">{{ student.first_name }}</td>
+                      <td class="emp_name">
+                        <form action="/del_student_course/{{ student.student_id }}/{{ course.course_id}}" method="post" style="display: inline-block;">
+                          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
             {% endfor %}
           </tbody>
         </table>
@@ -223,7 +251,7 @@
 </div>
 {% endfor %}
 
-<!-- Modal for Advanced Courses -->
+<!-- Modal for Advance Courses -->
 {% for course in course_advanced %}
 <div class="modal fade" id="courseModal{{ course.course_id }}" tabindex="-1" role="dialog"
   aria-labelledby="courseModalLabel{{ course.course_id }}" aria-hidden="true">
@@ -260,6 +288,35 @@
         </p>
         <p>Duration: {{ course.start_date }} - {{ course.end_date }}</p>
         <p>Level: {{ course.course_level }}</p>
+        <h1>Shuttles:</h1>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Shuttle Name</th>
+              <th scope="col">Capacity</th>
+              <th scope="col">Type</th>
+              <th scope="col">Start Location</th>
+              <th scope="col">End Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for area in areas %}
+              {% if area.area_id == course.area %}
+                {% for shuttle in shuttles %}
+                  {% if area.area_id == shuttle.area_id %}
+                    <tr>
+                      <td class="emp_name">{{ shuttle.shuttle_name }}</td>
+                      <td class="emp_name">{{ shuttle.capacity }}</td>
+                      <td class="emp_name">{{ shuttle.type }}</td>
+                      <td class="emp_name">{{ shuttle.start_location }}</td>
+                      <td class="emp_name">{{ shuttle.end_location }}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
 
         <h1>Students in this Course:</h1>
         <table class="table table-dark table-striped">
@@ -269,29 +326,29 @@
               <th scope="col">ID</th>
               <th scope="col">Last Name</th>
               <th scope="col">First Name</th>
-              <th scope="col">Actions</th> <!-- Add Actions column -->
+              <th scope="col">Actions</th> 
             </tr>
           </thead>
           <tbody>
             {% for cs in course_students %}
-            {% if cs.course_course_id == course.course_id %}
-            {% set s_id = cs.student_student_id %}
-            {% for student in students %}
-            {% if s_id == student.student_id %}
-            <tr>
-              <td class="emp_name">{{ loop.index }}</td>
-              <td class="emp_name">{{ student.student_id }}</td>
-              <td class="emp_name">{{ student.last_name }}</td>
-              <td class="emp_name">{{ student.first_name }}</td>
-              <td class="emp_name">
-                <form action="/del_student_course/{{ student.student_id }}/{{ course.course_id}}" method="post" style="display: inline-block;">
-                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
-              </td>
-            </tr>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
+              {% if cs.course_course_id == course.course_id %}
+                {% set s_id = cs.student_student_id %}
+                {% for student in students %}
+                  {% if s_id == student.student_id %}
+                    <tr>
+                      <td class="emp_name">{{ loop.index }}</td>
+                      <td class="emp_name">{{ student.student_id }}</td>
+                      <td class="emp_name">{{ student.last_name }}</td>
+                      <td class="emp_name">{{ student.first_name }}</td>
+                      <td class="emp_name">
+                        <form action="/del_student_course/{{ student.student_id }}/{{ course.course_id}}" method="post" style="display: inline-block;">
+                          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
             {% endfor %}
           </tbody>
         </table>
@@ -341,6 +398,35 @@
         </p>
         <p>Duration: {{ course.start_date }} - {{ course.end_date }}</p>
         <p>Level: {{ course.course_level }}</p>
+        <h1>Shuttles:</h1>
+        <table class="table table-dark table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Shuttle Name</th>
+              <th scope="col">Capacity</th>
+              <th scope="col">Type</th>
+              <th scope="col">Start Location</th>
+              <th scope="col">End Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for area in areas %}
+              {% if area.area_id == course.area %}
+                {% for shuttle in shuttles %}
+                  {% if area.area_id == shuttle.area_id %}
+                    <tr>
+                      <td class="emp_name">{{ shuttle.shuttle_name }}</td>
+                      <td class="emp_name">{{ shuttle.capacity }}</td>
+                      <td class="emp_name">{{ shuttle.type }}</td>
+                      <td class="emp_name">{{ shuttle.start_location }}</td>
+                      <td class="emp_name">{{ shuttle.end_location }}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </tbody>
+        </table>
 
         <h1>Students in this Course:</h1>
         <table class="table table-dark table-striped">
@@ -350,29 +436,29 @@
               <th scope="col">ID</th>
               <th scope="col">Last Name</th>
               <th scope="col">First Name</th>
-              <th scope="col">Actions</th> <!-- Add Actions column -->
+              <th scope="col">Actions</th> 
             </tr>
           </thead>
           <tbody>
             {% for cs in course_students %}
-            {% if cs.course_course_id == course.course_id %}
-            {% set s_id = cs.student_student_id %}
-            {% for student in students %}
-            {% if s_id == student.student_id %}
-            <tr>
-              <td class="emp_name">{{ loop.index }}</td>
-              <td class="emp_name">{{ student.student_id }}</td>
-              <td class="emp_name">{{ student.last_name }}</td>
-              <td class="emp_name">{{ student.first_name }}</td>
-              <td class="emp_name">
-                <form action="/del_student_course/{{ student.student_id }}/{{ course.course_id}}" method="post" style="display: inline-block;">
-                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
-              </td>
-            </tr>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
+              {% if cs.course_course_id == course.course_id %}
+                {% set s_id = cs.student_student_id %}
+                {% for student in students %}
+                  {% if s_id == student.student_id %}
+                    <tr>
+                      <td class="emp_name">{{ loop.index }}</td>
+                      <td class="emp_name">{{ student.student_id }}</td>
+                      <td class="emp_name">{{ student.last_name }}</td>
+                      <td class="emp_name">{{ student.first_name }}</td>
+                      <td class="emp_name">
+                        <form action="/del_student_course/{{ student.student_id }}/{{ course.course_id}}" method="post" style="display: inline-block;">
+                          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
             {% endfor %}
           </tbody>
         </table>

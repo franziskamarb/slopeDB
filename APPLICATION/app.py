@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'hard to guess string'
 
 db = SQLAlchemy(app)
-from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent
+from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent, Shuttle
 
 app.app_context().push()
 db.create_all()
@@ -100,9 +100,10 @@ def courses():
     course_expert = Course.query.filter(Course.course_level == "expert").all()
     course_students = CourseStudent.query.all()
     students = Student.query.all()
+    shuttles = Shuttle.query.all()
     areas = Area.query.all()
 
-    return render_template('courses.html', students=students, course_students=course_students, course_beginner=course_beginner, course_advanced=course_advanced, course_expert=course_expert, areas=areas)
+    return render_template('courses.html', shuttles=shuttles, students=students, course_students=course_students, course_beginner=course_beginner, course_advanced=course_advanced, course_expert=course_expert, areas=areas)
 
 
 @app.route('/add_student_to_course', methods=['GET', 'POST'])
