@@ -91,7 +91,7 @@ SELECT
 ,e.Country
 ,e.Post_code
 ,e.Birthdate
-,[Age] = YEAR(GETDATE()) - YEAR(s.Birthdate)
+,EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM e.Birthdate) AS Age
 ,e.Sex
 ,e.Phonenumber  
 FROM EMPLOYEE e
