@@ -29,7 +29,7 @@ FROM STUDENT s
 LEFT OUTER JOIN SKI sk ON s.Ski_id = sk.Ski_id
 LEFT OUTER JOIN HELMETS h ON s.Helmet_id = h.Helmet_id
 LEFT OUTER JOIN POLES p ON s.Pole_id = p.Poles_id
-LEFT OUTER JOIN ACCOMODATION a ON s.Accomodation = a.Accomodation_id
+LEFT OUTER JOIN ACCOMODATION a ON s.Accomodation = a.Accomodation_id;
 
 
 CREATE VIEW v_STUDENT_MATERIAL
@@ -52,7 +52,7 @@ LEFT OUTER JOIN SKI sk
 LEFT OUTER JOIN HELMETS h
     ON s.Helmet_id = h.Helmet_id
 LEFT OUTER JOIN POLES p
-    ON s.Pole_id = p.Poles_id
+    ON s.Pole_id = p.Poles_id;
 
 
 CREATE VIEW v_STUDENT_COURSE_EMPLOYEE
@@ -72,7 +72,7 @@ LEFT OUTER JOIN COURSE_STUDENT cs
 LEFT OUTER JOIN COURSE c
     ON cs.COURSE_Course_id = c.Course_id
 LEFT OUTER JOIN EMPLOYEE e
-    ON c.Employee_id = e.Employee_id
+    ON c.Employee_id = e.Employee_id;
     
 
 CREATE VIEW v_EMPLOYEE 
@@ -96,7 +96,7 @@ SELECT
 ,e.Phonenumber  
 FROM EMPLOYEE e
 LEFT OUTER JOIN SALARY s
-    ON e.Salary_group = s.Salary_group
+    ON e.Salary_group = s.Salary_group;
 
 
 CREATE MATERIALIZED VIEW v_COURSE_AREA_SHUTTLE
@@ -118,4 +118,4 @@ LEFT OUTER JOIN AREA a
 LEFT OUTER JOIN SHUTTLE s 
     ON a.Area_id = s.Area_id
 LEFT OUTER JOIN EMPLOYEE e 
-    ON c.Employee_id = e.Employee_id
+    ON c.Employee_id = e.Employee_id;
