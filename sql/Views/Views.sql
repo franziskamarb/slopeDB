@@ -34,7 +34,8 @@ LEFT OUTER JOIN ACCOMODATION a ON s.Accomodation = a.Accomodation_id
 
 CREATE VIEW v_STUDENT_MATERIAL
 AS
-s.Student_id
+SELECT
+s.student_id
 ,s.First_Name
 ,s.Last_Name
 ,s.Birthdate
@@ -51,7 +52,7 @@ LEFT OUTER JOIN SKI sk
 LEFT OUTER JOIN HELMETS h
     ON s.Helmet_id = h.Helmet_id
 LEFT OUTER JOIN POLES p
-    ON s.Pole_id = p.Pole_id
+    ON s.Pole_id = p.Poles_id
 
 
 CREATE VIEW v_STUDENT_COURSE_EMPLOYEE
