@@ -5,8 +5,8 @@ s.Student_id
 ,s.First_Name
 ,s.Last_Name
 ,s.Birthdate
-,[Adult] = CASE WHEN (GETDATE() - s.Birthdate) >  THEN 'Yes' 
-                ELSE 'NO' End_date
+,[Adult] = CASE WHEN (GETDATE() - s.Birthdate) > 6575  THEN 'Yes' 
+                ELSE 'NO' End
 ,[Age] = YEAR(GETDATE()) - YEAR(s.Birthdate)
 ,s.Course_type
 ,s.Experience_level
