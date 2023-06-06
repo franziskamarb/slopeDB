@@ -23,15 +23,8 @@ services:
             POSTGRES_DB: slopeDB
         volumes:
             - ../sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
-            - ../sql/insert_data/Insert_Accomodation.sql:/docker-entrypoint-initdb.d/2-Insert_Accomodation.sql
-            - ../sql/insert_data/Insert_Helmets.sql:/docker-entrypoint-initdb.d/3-Insert_Helmets.sql
-            - ../sql/insert_data/Insert_Poles.sql:/docker-entrypoint-initdb.d/4-Insert_Poles.sql
-            - ../sql/insert_data/Insert_Skier.sql:/docker-entrypoint-initdb.d/5-Insert_Skier.sql
-            - ../sql/insert_data/Insert_Salary.sql:/docker-entrypoint-initdb.d/6-Insert_Salary.sql
-            - ../sql/insert_data/Insert_Area.sql:/docker-entrypoint-initdb.d/3-Insert_Area.sql
-            - ../sql/insert_data/Insert_Employee.sql:/docker-entrypoint-initdb.d/8-Insert_Employee.sql
-            - ../sql/insert_data/Insert_Shuttle.sql:/docker-entrypoint-initdb.d/9-Insert_Shuttle.sql
-            
+            - ../sql/insert_data.sql:/docker-entrypoint-initdb.d/2-insert_data.sql
+
     adminer:
         image: adminer
         restart: always

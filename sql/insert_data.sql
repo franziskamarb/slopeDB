@@ -1,3 +1,303 @@
+INSERT INTO ACCOMODATION
+	VALUES ('A1', 'Alpine Lodge', 'Hotel', 'Schönblickstraße', '12', 'Oberstdorf', 'Germany', '87561')
+		  ,('A2', 'Hausberg Chalet', 'Chalet', 'Hausbergweg', '2', 'Oberstdorf', 'Germany', '87561')
+		  ,('A3', 'Majestic Mountainside Inn', 'Inn', 'Alpenstraße', '4', 'Oberstdorf', 'Germany', '87561')
+		  ,('A4', 'Peak View Apartments', 'Apartment', 'Höfatsweg', '8', 'Oberstdorf', 'Germany', '87561')
+		  ,('A5', 'Bavarian Mountain Retreat', 'Hotel', 'Kornaustraße', '45', 'Oberstdorf', 'Germany', '87561')
+		  ,('A6', 'Alpside Lodge', 'Lodge', 'Lerchenfeldstraße', '17', 'Oberstdorf', 'Germany', '87561')
+		  ,('A7', 'Hilltop Guesthouse', 'Guesthouse', 'Am Gaisberg', '9', 'Oberstdorf', 'Germany', '87561')
+		  ,('A8', 'Panorama Chalet', 'Chalet', 'Fellhornweg', '28', 'Oberstdorf', 'Germany', '87561')
+		  ,('A9', 'Mountain View Hotel', 'Hotel', 'Trettachstraße', '19', 'Oberstdorf', 'Germany', '87561')
+		  ,('A10', 'Alpine Vista Apartments', 'Apartment', 'Auenstraße', '3', 'Oberstdorf', 'Germany', '87561')
+		  ,('A11', 'Ski Lodge Oberstdorf', 'Lodge', 'Neherstraße', '17', 'Oberstdorf', 'Germany', '87561')
+		  ,('A12', 'Alpenrose Guesthouse', 'Guesthouse', 'Mittelbergstraße', '19', 'Oberstdorf', 'Germany', '87561')
+		  ,('A13', 'Mountain Breeze Chalet', 'Chalet', 'Höfleweg', '11', 'Oberstdorf', 'Germany', '87561')
+		  ,('A14', 'Schattenberg Haus', 'Hotel', 'Schattenbergstraße', '5', 'Oberstdorf', 'Germany', '87561')
+		  ,('A15', 'Alpenwald Lodge', 'Lodge', 'Kurparkstraße', '5', 'Oberstdorf', 'Germany', '87561')
+		  ,('A16', 'Sonnalp Guesthouse', 'Guesthouse', 'Freibergstraße', '9', 'Oberstdorf', 'Germany', '87561')
+		  ,('A17', 'Bavarian Chalet', 'Chalet', 'Wildentalstraße', '29', 'Oberstdorf', 'Germany', '87561')
+		  ,('A18', 'Mountain Dream Apartments', 'Apartment', 'Birgsauer Straße', '22', 'Oberstdorf', 'Germany', '87561')
+		  ,('A19', 'Alpenglühen Hotel', 'Hotel', 'Eggstraße', '18', 'Oberstdorf', 'Germany', '87561')
+		  ,('A20', 'Höllwiesen Haus', 'Guesthouse', 'Kornau-Wanne', '17', 'Oberstdorf', 'Germany', '87561')
+		  ,('A21', 'Alpine Lodge', 'Hotel', 'Fellhornstrasse', '20', 'Oberstdorf', 'Germany', '87561')
+		  ,('A22', 'Mount View Inn', 'Bed & Breakfast', 'Lorettostrasse', '4', 'Oberstdorf', 'Germany', '87561')
+		  ,('A23', 'Sunny Hillside Chalet', 'Holiday Home', 'Söllereckstrasse', '17', 'Oberstdorf', 'Germany', '87561')
+		  ,('A24', 'Snowy Peak Resort', 'Hotel', 'Waltenbergerstrasse', '21', 'Oberstdorf', 'Germany', '87561')
+		  ,('A25', 'Mountain View Apartments', 'Apartment', 'Riezlernstrasse', '10', 'Oberstdorf', 'Germany', '87561')
+		  ,('A26', 'Alpine Style Pension', 'Pension', 'Hauptstrasse', '35', 'Oberstdorf', 'Germany', '87561')
+		  ,('A27', 'The Lodge at Fellhorn', 'Hotel', 'Fellhornstrasse', '15', 'Oberstdorf', 'Germany', '87561')
+		  ,('A28', 'Meadowside Guesthouse', 'Guesthouse', 'Söllereckstrasse', '8', 'Oberstdorf', 'Germany', '87561')
+		  ,('A29', 'Charming Holiday Home', 'Holiday Home', 'Nebelhornstrasse', '3', 'Oberstdorf', 'Germany', '87561')
+		  ,('A30', 'Bavarian Style Chalet', 'Chalet', 'Freibergstrasse', '9', 'Oberstdorf', 'Germany', '87561')
+	      ,('A31', 'Walser Lodge', 'Hotel', 'Walserstraße', '50', 'Riezlern', 'Austria', '6991')
+          ,('A32', 'Haus Alpenecho', 'Apartment', 'Unterdorf', '23', 'Riezlern', 'Austria', '6991')
+          ,('A33', 'Hotel Alpenstern', 'Hotel', 'Walserstraße', '90', 'Riezlern', 'Austria', '6991')
+          ,('A34', 'Landhaus Riezler', 'Apartment', 'Walserstraße', '34', 'Riezlern', 'Austria', '6991')
+          ,('A35', 'Haus Edelweiss', 'Guest house', 'Kirchplatz', '5', 'Riezlern', 'Austria', '6991')
+          ,('A36', 'Gästehaus Alpenblick', 'Guest house', 'Walserstraße', '20', 'Mittelberg', 'Austria', '6993')
+          ,('A37', 'Alpenhotel Widderstein', 'Hotel', 'Wildentalstraße', '24', 'Mittelberg', 'Austria', '6993')
+          ,('A38', 'Ferienwohnung Susi', 'Apartment', 'Gerschtweg', '11', 'Mittelberg', 'Austria', '6993')
+          ,('A39', 'Gästehaus Riezlerhof', 'Guest house', 'Baadstraße', '14', 'Mittelberg', 'Austria', '6993')
+          ,('A40', 'Hotel Leitner', 'Hotel', 'Walserstraße', '102', 'Mittelberg', 'Austria', '6993')
+          ,('A41', 'Haus am Bach', 'Apartment', 'Bödmenstraße', '35', 'Hirschegg', 'Austria', '6992')
+          ,('A42', 'Gästehaus Alpenland', 'Guest house', 'Höfle', '10', 'Hirschegg', 'Austria', '6992')
+          ,('A43', 'Kleinwalsertaler Rosenhof', 'Hotel', 'Oberwesteggweg', '9', 'Hirschegg', 'Austria', '6992')
+          ,('A44', 'Ferienwohnungen Birkenhof', 'Apartment', 'Gatterhof', '4', 'Hirschegg', 'Austria', '6992')
+          ,('A45', 'Hotel Riezler Hof', 'Hotel', 'Walserstraße', '57', 'Riezlern', 'Austria', '6991')
+          ,('A46', 'Haus Schäfer', 'Apartment', 'Kirchplatz', '10', 'Riezlern', 'Austria', '6991')
+          ,('A47', 'Gästehaus Alpenstern', 'Guest house', 'Höfle', '2', 'Mittelberg', 'Austria', '6993')
+          ,('A48', 'Ferienwohnungen Alpina', 'Apartment', 'Walserstraße', '59', 'Riezlern', 'Austria', '6991');
+
+INSERT INTO HELMETS
+	VALUES ('H1', 'Alpina', '47')
+		  ,('H2', 'Alpina', '50')
+		  ,('H3', 'Alpina', '53')
+		  ,('H4', 'Alpina', '56')
+		  ,('H5', 'Alpina', '59')
+		  ,('H6', 'Alpina', '61')
+		  ,('H7', 'UVEX', '47')
+		  ,('H8', 'UVEX', '50')
+		  ,('H9', 'UVEX', '53')
+		  ,('H10', 'UVEX', '56')
+		  ,('H11', 'UVEX', '59')
+		  ,('H12', 'UVEX', '61')
+		  ,('H13', 'Smith', '47')
+		  ,('H14', 'Smith', '50')
+		  ,('H15', 'Smith', '53')
+		  ,('H16', 'Smith', '56')
+		  ,('H17', 'Smith', '59')
+		  ,('H18', 'Smith', '61')
+		  ,('H19', 'Giro', '47')
+		  ,('H20', 'Giro', '50')
+		  ,('H21', 'Giro', '53')
+		  ,('H22', 'Giro', '56')
+		  ,('H23', 'Giro', '59')
+		  ,('H24', 'Giro', '61')
+		  ,('H25', 'Carrera', '47')
+		  ,('H26', 'Carrera', '50')
+		  ,('H27', 'Carrera', '53')
+		  ,('H28', 'Carrera', '56')
+		  ,('H29', 'Carrera', '59')
+		  ,('H30', 'Carrera', '61')
+		  ,('H31', 'Atomic', '47')
+		  ,('H32', 'Atomic', '50')
+		  ,('H33', 'Atomic', '53')
+		  ,('H34', 'Atomic', '56')
+		  ,('H35', 'Atomic', '59')
+		  ,('H36', 'Atomic', '61')
+		  ,('H37', 'Salomon', '47')
+		  ,('H38', 'Salomon', '50')
+		  ,('H39', 'Salomon', '53')
+		  ,('H40', 'Salomon', '56')
+		  ,('H41', 'Salomon', '59')
+		  ,('H42', 'Salomon', '61')
+		  ,('H43', 'Bollé', '47')
+		  ,('H44', 'Bollé', '50')
+		  ,('H45', 'Bollé', '53')
+		  ,('H46', 'Bollé', '56')
+		  ,('H47', 'Bollé', '59')
+		  ,('H48', 'Bollé', '61')
+		  ,('H49', 'Poc', '47')
+		  ,('H50', 'Poc', '50')
+		  ,('H51', 'Poc', '53')
+		  ,('H52', 'Poc', '56')
+		  ,('H53', 'Poc', '59')
+		  ,('H54', 'Poc', '61')
+		  ,('H55', 'SCOTT', '47')
+		  ,('H56', 'SCOTT', '50')
+		  ,('H57', 'SCOTT', '53')
+		  ,('H58', 'SCOTT', '56')
+		  ,('H59', 'SCOTT', '59')
+		  ,('H60', 'SCOTT', '61');
+
+INSERT INTO POLES
+	VALUES ('P1', 'Atomic', '70')
+		  ,('P2', 'Atomic', '70')
+		  ,('P3', 'Atomic', '70')
+		  ,('P4', 'Atomic', '75')
+		  ,('P5', 'Atomic', '75')
+		  ,('P6', 'Atomic', '75')
+		  ,('P7', 'Atomic', '80')
+		  ,('P8', 'Atomic', '80')
+		  ,('P9', 'Atomic', '80')
+		  ,('P10', 'Atomic', '85')
+		  ,('P11', 'Atomic', '85')
+		  ,('P12', 'Atomic', '85')
+		  ,('P13', 'Atomic', '90')
+		  ,('P14', 'Atomic', '90')
+		  ,('P15', 'Atomic', '90')
+		  ,('P16', 'Atomic', '95')
+		  ,('P17', 'Atomic', '95')
+		  ,('P18', 'Atomic', '95')
+		  ,('P19', 'Atomic', '100')
+		  ,('P20', 'Atomic', '100')
+		  ,('P21', 'Atomic', '100')
+		  ,('P22', 'Atomic', '105')
+		  ,('P23', 'Atomic', '105')
+		  ,('P24', 'Atomic', '105')
+		  ,('P25', 'Atomic', '110')
+		  ,('P26', 'Atomic', '110')
+		  ,('P27', 'Atomic', '110')
+		  ,('P28', 'Atomic', '115')
+		  ,('P29', 'Atomic', '115')
+		  ,('P30', 'Atomic', '115')
+		  ,('P31', 'Atomic', '120')
+		  ,('P32', 'Atomic', '120')
+		  ,('P33', 'Atomic', '120')
+		  ,('P34', 'Atomic', '125')
+		  ,('P35', 'Atomic', '125')
+		  ,('P36', 'Atomic', '125')
+		  ,('P37', 'Atomic', '130')
+		  ,('P38', 'Atomic', '130')
+		  ,('P39', 'Atomic', '130')
+		  ,('P40', 'Leki', '70')
+		  ,('P41', 'Leki', '70')
+		  ,('P42', 'Leki', '70')
+		  ,('P43', 'Leki', '75')
+		  ,('P44', 'Leki', '75')
+		  ,('P45', 'Leki', '75')
+		  ,('P46', 'Leki', '80')
+		  ,('P47', 'Leki', '80')
+		  ,('P48', 'Leki', '80')
+		  ,('P49', 'Leki', '85')
+		  ,('P50', 'Leki', '85')
+		  ,('P51', 'Leki', '85')
+		  ,('P52', 'Leki', '90')
+		  ,('P53', 'Leki', '90')
+		  ,('P54', 'Leki', '90')
+		  ,('P55', 'Leki', '95')
+		  ,('P56', 'Leki', '95')
+		  ,('P57', 'Leki', '95')
+		  ,('P58', 'Leki', '100')
+		  ,('P59', 'Leki', '100')
+		  ,('P60', 'Leki', '100')
+		  ,('P61', 'Leki', '105')
+		  ,('P62', 'Leki', '105')
+		  ,('P63', 'Leki', '105')
+		  ,('P64', 'Leki', '110')
+		  ,('P65', 'Leki', '110')
+		  ,('P66', 'Leki', '110')
+		  ,('P67', 'Leki', '115')
+		  ,('P68', 'Leki', '115')
+		  ,('P69', 'Leki', '115')
+		  ,('P70', 'Leki', '120')
+		  ,('P71', 'Leki', '120')
+		  ,('P72', 'Leki', '120')
+		  ,('P73', 'Leki', '125')
+		  ,('P74', 'Leki', '125')
+		  ,('P75', 'Leki', '125')
+		  ,('P76', 'Leki', '130')
+		  ,('P77', 'Leki', '130')
+		  ,('P78', 'Leki', '130');
+
+INSERT INTO SKI
+	VALUES ('SM1', 'RC4 The Curv DTX', 'Fischer', '175'),
+		   ('SM2', 'Redster S9', 'Atomic', '160'),
+		   ('SM3', 'Deacon 76', 'Völkl', '173'),
+		   ('SM4', 'QST 99', 'Salomon', '174'),
+		   ('SM5', 'Mindbender 90C', 'K2', '170'),
+		   ('SM6', 'Stormrider 88', 'Stöckli', '180'),
+		   ('SM7', 'Magnum', 'Head', '170'),
+		   ('SM8', 'Ranger 102 FR', 'Fischer', '175'),
+		   ('SM9', 'Vantage 79 TI', 'Atomic', '160'),
+		   ('SM10', 'Mantra 102', 'Völkl', '173'),
+		   ('SM11', 'MTN Explore 88', 'Salomon', '174'),
+		   ('SM12', 'Ikonic 84', 'K2', '170'),
+		   ('SM13', 'Laser AR', 'Stöckli', '180'),
+		   ('SM14', 'Supershape i.Rally', 'Head', '170'),
+		   ('SM15', 'Ranger 99 Ti', 'Fischer', '175'),
+		   ('SM16', 'Backland 85', 'Atomic', '160'),
+		   ('SM17', 'Kendo 88', 'Völkl', '173'),
+		   ('SM18', 'QST Lumen 99', 'Salomon', '174'),
+		   ('SM19', 'Mindbender 108 Ti', 'K2', '170'),
+		   ('SM20', 'Stormrider Pro 115', 'Stöckli', '180'),
+		   ('SM21', 'Supershape i.Titan', 'Head', '170'),
+		   ('SM22', 'Pro Mtn 86 TI', 'Atomic', '160'),
+		   ('SM23', 'Secret 92', 'Völkl', '173'),
+		   ('SM24', 'QST Myriad 85', 'Salomon', '174'),
+		   ('SM25', 'Mindbender 116 C', 'K2', '170'),
+		   ('SM26', 'Laser SX', 'Stöckli', '180'),
+		   ('SM27', 'Monster 83 Ti', 'Head', '170'),
+		   ('SM28', 'Ranger One 95', 'Fischer', '175'),
+		   ('SM29', 'Cloud 12', 'Atomic', '160'),
+		   ('SM30', 'Flair 81', 'Völkl', '173'),
+		   ('SM31', 'QST Lux 92', 'Salomon', '174'),
+		   ('SM32', 'Mindbender 98 TI Alliance', 'K2', '170'),
+		   ('SM33', 'Stormrider 88 Women', 'Stöckli', '180'),
+		   ('SM34', 'Supershape e.Speed', 'Head', '170'),
+		   ('SM35', 'RC One 82 GT', 'Fischer', '175'),
+		   ('SM36', 'Cloud 9', 'Atomic', '160'),
+		   ('SM37', 'Flair 76 Elite', 'Völkl', '173'),
+		   ('SM38', 'QST Myriad 85 Women', 'Salomon', '174'),
+		   ('SM39', 'Mindbender 90 TI Alliance', 'K2', '170'),
+		   ('SM40', 'Nela 84 Women', 'Stöckli', '180'),
+		   ('SM41', 'K2 Indy', 'K2', '130'),
+		   ('SM42', 'K2 Remedy Jr', 'K2', '139'),
+		   ('SM43', 'Atomic Redster J9', 'Atomic', '120'),
+		   ('SM44', 'Atomic Redster J2', 'Atomic', '100'),
+		   ('SM45', 'Völkl Racetiger SL Jr', 'Völkl', '130'),
+		   ('SM46', 'Völkl Mantra Jr', 'Völkl', '138'),
+		   ('SM47', 'Fischer RC4 The Curv', 'Fischer', '130'),
+		   ('SM48', 'Fischer Ranger Jr', 'Fischer', '140'),
+		   ('SM49', 'Salomon QST Lumen Jr', 'Salomon', '120'),
+		   ('SM50', 'Salomon QST Max Jr', 'Salomon', '140'),
+		   ('SM51', 'Stöckli Laser Jr', 'Stöckli', '130'),
+		   ('SM52', 'Stöckli Stormrider Jr', 'Stöckli', '138'),
+		   ('SM53', 'Head Supershape Team Jr', 'Head', '117'),
+		   ('SM54', 'Head Monster Team Jr', 'Head', '127'),
+		   ('SM55', 'RC4 Junior', 'Fischer', '100'),
+		   ('SM56', 'Redster J4', 'Atomic', '110'),
+		   ('SM57', 'RTM Jr.', 'Völkl', '120'),
+		   ('SM58', 'QST Lumen Jr.', 'Salomon', '118'),
+		   ('SM59', 'Luv Bug', 'K2', '100'),
+		   ('SM60', 'Scale Jr.', 'Stöckli', '110'),
+		   ('SM61', 'V-Shape V2', 'Head', '115');
+
+INSERT INTO SALARY
+	VALUES ('A', 10.000)
+		  ,('B', 15.000)
+		  ,('C', 20.000)
+		  ,('D', 25.000)
+		  ,('E', 30.000)
+		  ,('F', 35.000)
+		  ,('G', 40.000)
+		  ,('H', 45.000)
+		  ,('I', 50.000)
+		  ,('J', 55.000)
+		  ,('K', 60.000)
+		  ,('L', 65.000)
+		  ,('M', 70.000)
+		  ,('N', 75.000)
+		  ,('O', 80.000)
+		  ,('P', 85.000)
+		  ,('Q', 90.000);
+
+INSERT INTO AREA
+	VALUES ('GF', 'Germany', 'Fellhorn', 'Oberstdorf', 'Medium', '8:30:00', '16:30:00', 'No'),
+		   ('AK', 'Austria', 'Kanzelwand', 'Riezlern', 'Medium', '8:30:00', '16:00:00', 'Yes'),
+		   ('GN', 'Germany', 'Nebelhorn', 'Oberstdorf', 'Expert', '8:30:00', '16:40:00', 'Yes'),
+		   ('AI', 'Austria', 'Ifen','Hirschegg', 'Medium', '8:30:00', '16:00:00', 'Yes'),
+		   ('AW', 'Austria', 'Walmendingerhorn', 'Mittelberg', 'Medium', '8:30:00', '16:00:00', 'No'),
+		   ('GS', 'Germany', 'Söllereck', 'Oberstdorf', 'Beginner', '8:30:00', '16:00:00', 'Yes'),
+		   ('AH', 'Austria', 'Heuberg', 'Hirschegg', 'Beginner', '8:30:00', '16:00:00', 'Yes');
+
+INSERT INTO EMPLOYEE
+	VALUES ('E1', 'Ludwig', 'Maier', 'Ski School Director', 'O', 'DSV Diplom-Instructor', 'Hauptstraße', '1', 'City', 'Country', '87561', '1985-05-10', 36, 'M', '123456789')
+		  ,('E2', 'Anna', 'Huber', 'Ski School Director', 'P', 'DSV Diplom-Instructor', 'Dorfstraße', '5', 'City', 'Country', '87561', '1988-08-20', 33, 'F', '987654321')
+		  ,('E3', 'Simon', 'Schneider', 'Ski Instructor', 'K', 'DSV Diplom-Instructor', 'Bergweg', '10', 'City', 'Country', '87561', '1990-03-15', 31, 'M', '456123789')
+		  ,('E4', 'Monika', 'Müller', 'Ski Instructor', 'K', 'DSV Diplom-Instructor', 'Kirchplatz', '3', 'City', 'Country', '87561', '1987-11-27', 34, 'F', '789123456')
+		  ,('E5', 'Sebastian', 'Bauer', 'Ski Instructor', 'J', 'DSV Landes-Instructor', 'Bergstraße', '8', 'City', 'Country', '87561', '1989-06-05', 32, 'M', '654789123')
+		  ,('E6', 'Sabine', 'Schmitt', 'Ski Instructor', 'J', 'DSV Landes-Instructor', 'Feldweg', '12', 'City', 'Country', '87561', '1992-09-15', 29, 'F', '321987654')
+		  ,('E7', 'Michael', 'Fischer', 'Ski Instructor', 'J', 'DSV Landes-Instructor', 'Wiesenweg', '6', 'City', 'Country', '87561', '1986-02-18', 35, 'M', '987321654')
+		  ,('E8', 'Julia', 'Weber', 'Ski Instructor', 'I', 'DSV Snowsport-Instructor', 'Bahnhofstraße', '2', 'City', 'Country', '87561', '1991-07-12', 30, 'F', '456789123')
+		  ,('E9', 'Andreas', 'Mayer', 'Ski Instructor', 'I', 'DSV Snowsport-Instructor', 'Sonnenweg', '9', 'City', 'Country', '87561', '1984-12-09', 37, 'M', '789654321')
+		  ,('E10', 'Stefanie', 'Schmid', 'Ski Instructor', 'G', 'DSV Basis-Instructor', 'Birkenallee', '4', 'City', 'Country', '87561', '1993-04-25', 28, 'F', '321456987')
+		  ,('E11', 'Thomas', 'Bauer', 'Assistant Ski Instructor', 'G', 'DSV Basis-Instructor', 'Rosenstraße', '7', 'City', 'Country', '87561', '1986-10-08', 35, 'M', '654321987')
+		  ,('E12', 'Christine', 'Müller', 'Assistant Ski Instructor', 'G', 'DSV Basis-Instructor', 'Am Anger', '11', 'City', 'Country', '87561', '1989-03-21', 32, 'F', '987123456')
+		  ,('E13', 'Markus', 'Keller', 'Guest Services Representative', 'G', 'DSV Basis-Instructor', 'Bachweg', '15', 'City', 'Country', '87561', '1987-07-30', 34, 'M', '123789456')
+		  ,('E14', 'Melanie', 'Schuster', 'Equipment Rental Technician', 'I', 'DSV Snowsport-Instructor', 'Fichtenweg', '14', 'City', 'Country', '87561', '1990-12-03', 31, 'F', '456789321')
+		  ,('E15', 'Peter', 'Schwarz', 'Administrative Staff', 'I', 'DSV Snowsport-Instructor', 'Lindenstraße', '13', 'City', 'Country', '87561', '1985-09-17', 36, 'M', '789321654');
+
 INSERT INTO SHUTTLE
 	VALUES ('Fellhorn I', 'bus', 'Fellhorn valley station', 'Oberstdorf Busstation', '50', 'GF'),
 		   ('Fellhorn II', 'bus', 'Oberstdorf Busstation', 'Fellhorn valley station', '50', 'GF'),

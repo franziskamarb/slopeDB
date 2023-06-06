@@ -22,6 +22,7 @@ from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, Cours
 app.app_context().push()
 db.create_all()
 
+"""
 # psycopg2 connection
 # psycopg2 to execute queries with sql statements (not object oriented like sqlalchemy)
 conn = psycopg2.connect(
@@ -33,7 +34,7 @@ conn = psycopg2.connect(
 )
 
 cur = conn.cursor()
-
+"""
 @app.route('/')
 def index():
     title="landing page"
