@@ -1,41 +1,35 @@
-CREATE VIEW v_STUDENT
-AS
+CREATE VIEW v_STUDENT AS
 SELECT 
-s.Student_id
-,s.First_Name
-,s.Last_Name
-,s.Birthdate
-,[Adult] = CASE WHEN (GETDATE() - s.Birthdate) > 6575  THEN 'Yes' 
-                ELSE 'NO' End
-,[Age] = YEAR(GETDATE()) - YEAR(s.Birthdate)
-,s.Course_type
-,s.Experience_level
-,s.Phonenumber
-,s.Sex
-,s.Street
-,s.House_num
-,s.Post_code
-,s.City
-,s.Country
-,s.Arrival_date
-,s.Departure_date
-,a.Accommodation_Name
-,sk.Brand as Ski_Brand
-,sk.Modell as Ski_Modell
-,sk.Length as Ski_Length
-,h.Brand as Helment_brand
-,h.Size as Helment_size_in_cm
-,p.Brand as Poles_Brand
-,p.Length as Poles_Length_in_cm
+s.Student_id,
+s.First_Name,
+s.Last_Name,
+s.Birthdate,
+(CASE WHEN (CURRENT_DATE - s.Birthdate) > 6575 THEN 'Yes' ELSE 'No' END) AS Adult,
+(EXTRACT(YEAR FROM CURRENT_DATE) - EXTRACT(YEAR FROM s.Birthdate)) AS Age,
+s.Course_type,
+s.Experience_level,
+s.Phonenumber,
+s.Sex,
+s.Street,
+s.House_num,
+s.Post_code,
+s.City,
+s.Country,
+s.Arrival_date,
+s.Departure_date,
+a.Name,
+sk.Brand AS Ski_Brand,
+sk.Modell AS Ski_Modell,
+sk.Length AS Ski_Length,
+h.Brand AS Helmet_brand,
+h.Size AS Helmet_size_in_cm,
+p.Brand AS Poles_Brand,
+p.Length AS Poles_Length_in_cm
 FROM STUDENT s
-LEFT OUTER JOIN SKI sk
-    ON s.Ski_id = sk.Ski_id
-LEFT OUTER JOIN HELMETS h
-    ON s.Helmet_id = h.Helmet_id
-LEFT OUTER JOIN POLES p
-    ON s.Pole_id = p.Pole_id
-LEFT OUTER JOIN ACCOMODATION a
-    ON s.Accomodation = a.Accomodation_id
+LEFT OUTER JOIN SKI sk ON s.Ski_id = sk.Ski_id
+LEFT OUTER JOIN HELMETS h ON s.Helmet_id = h.Helmet_id
+LEFT OUTER JOIN POLES p ON s.Pole_id = p.Poles_id
+LEFT OUTER JOIN ACCOMODATION a ON s.Accomodation = a.Accomodation_id
 
 
 CREATE VIEW v_STUDENT_MATERIAL
