@@ -106,7 +106,7 @@ SELECT
 ,c.Course_level
 ,c.Start_date
 ,c.End_date
-,a.Area_Name
+,a.Name
 ,s.Shuttle_name
 ,s.Start_location
 ,s.End_location
