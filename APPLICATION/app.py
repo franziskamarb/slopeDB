@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, DateField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
-import os
+import psycopg2
 from sqlalchemy.ext.automap import automap_base
 from datetime import datetime, date
 import random
@@ -17,10 +17,22 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'hard to guess string'
 
 db = SQLAlchemy(app)
-from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent, Shuttle
+from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent, Shuttle, Employee, Salary
 
 app.app_context().push()
 db.create_all()
+
+# psycopg2 connection
+# psycopg2 to execute queries with sql statements (not object oriented like sqlalchemy)
+conn = psycopg2.connect(
+    host="localhost",
+    port="1234",
+    database="slopeDB",
+    user="postgres",
+    password="1234"
+)
+
+cur = conn.cursor()
 
 @app.route('/')
 def index():
@@ -156,6 +168,14 @@ def edit_student(student_id):
     
     form.update_choices()
     return render_template('edit_student.html', form=form)
+
+
+@app.route('/employees', methods=['GET'])
+def employees():
+    employees = Employee.query.order_by(Employee.last_name.asc()).all()
+    salaries = Salary.query.all()
+
+    return render_template('employees.html', employees=employees, salaries=salaries)
 
 
 # Forms

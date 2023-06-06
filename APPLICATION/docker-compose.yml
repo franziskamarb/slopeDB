@@ -31,12 +31,7 @@ services:
             - ../sql/insert_data/Insert_Area.sql:/docker-entrypoint-initdb.d/3-Insert_Area.sql
             - ../sql/insert_data/Insert_Employee.sql:/docker-entrypoint-initdb.d/8-Insert_Employee.sql
             - ../sql/insert_data/Insert_Shuttle.sql:/docker-entrypoint-initdb.d/9-Insert_Shuttle.sql
-            #- ../sql/insert_data/Insert_Student.sql:/docker-entrypoint-initdb.d/10-Insert_Students.sql
-
-            #- ../sql/insert_data/Insert_Students.sql:/docker-entrypoint-initdb.d/10-Insert_Students.sql
-            #- ../sql/insert_data/Insert_Course.sql:/docker-entrypoint-initdb.d/11-Insert_Course.sql
-            #- ../sql/insert_data/Insert_NN_Relation_Course_Student.sql:/docker-entrypoint-initdb.d/12-Insert_NN_Relation_Course_Student.sql
-
+            
     adminer:
         image: adminer
         restart: always
