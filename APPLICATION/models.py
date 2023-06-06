@@ -142,3 +142,24 @@ class CourseStudent(db.Model):
     student_student_id = db.Column(db.String, db.ForeignKey('student.student_id'), primary_key=True)
     course = db.relationship('Course')
     student = db.relationship('Student')
+
+
+class EmployeeView(db.Model):
+    __tablename__ = 'v_employee'
+
+    employee_id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String)
+    last_name = db.Column(db.String)
+    job_title = db.Column(db.String)
+    salary_group = db.Column(db.String)
+    salary = db.Column(db.Float)
+    instructor_level = db.Column(db.String)
+    street = db.Column(db.String)
+    house_num = db.Column(db.String)
+    city = db.Column(db.String)
+    country = db.Column(db.String)
+    post_code = db.Column(db.String)
+    birthdate = db.Column(db.Date)
+    age = db.Column(db.Integer)
+    sex = db.Column(db.String)
+    phonenumber = db.Column(db.String)

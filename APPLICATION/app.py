@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'hard to guess string'
 
 db = SQLAlchemy(app)
-from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent, Shuttle, Employee, Salary
+from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, CourseStudent, Shuttle, Employee, Salary, EmployeeView
 
 app.app_context().push()
 db.create_all()
@@ -173,10 +173,9 @@ def edit_student(student_id):
 
 @app.route('/employees', methods=['GET'])
 def employees():
-    employees = Employee.query.order_by(Employee.last_name.asc()).all()
-    salaries = Salary.query.all()
-
-    return render_template('employees.html', employees=employees, salaries=salaries)
+    employees = EmployeeView.query.all()
+    
+    return render_template('employees.html', employees=employees)
 
 
 # Forms
