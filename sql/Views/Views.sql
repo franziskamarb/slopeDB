@@ -65,7 +65,7 @@ SELECT
 ,e.First_Name as Instructor_FirstName
 ,e.Last_Name as Instructor_LastName
 ,e.Instructor_level
-,e.Job_titel
+,e.Job_Title
 FROM STUDENT s
 LEFT OUTER JOIN COURSE_STUDENT cs
     ON s.Student_id = cs.STUDENT_Student_id
@@ -73,6 +73,7 @@ LEFT OUTER JOIN COURSE c
     ON cs.COURSE_Course_id = c.Course_id
 LEFT OUTER JOIN EMPLOYEE e
     ON c.Employee_id = e.Employee_id
+    
 
 CREATE VIEW v_EMPLOYEE 
 AS 
