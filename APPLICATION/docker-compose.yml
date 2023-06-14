@@ -25,6 +25,7 @@ services:
             - ../sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
             - ../sql/insert_data.sql:/docker-entrypoint-initdb.d/2-insert_data.sql
             - ../sql/Views/Views.sql:/docker-entrypoint-initdb.d/3-Views.sql
+            - ../sql/procedure/procedure.sql:/docker-entrypoint-initdb.d/4-procedure.sql
 
     adminer:
         image: adminer

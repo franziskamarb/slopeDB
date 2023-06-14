@@ -4,7 +4,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, DateField
 from wtforms.validators import DataRequired
 from flask_bootstrap import Bootstrap
-import psycopg2
 from sqlalchemy.ext.automap import automap_base
 from datetime import datetime, date
 import random
@@ -22,19 +21,6 @@ from models import Student, Accomodation, Ski, Helmet, Pole, Course, Area, Cours
 app.app_context().push()
 db.create_all()
 
-"""
-# psycopg2 connection
-# psycopg2 to execute queries with sql statements (not object oriented like sqlalchemy)
-conn = psycopg2.connect(
-    host="localhost",
-    port="1234",
-    database="slopeDB",
-    user="postgres",
-    password="1234"
-)
-
-cur = conn.cursor()
-"""
 @app.route('/')
 def index():
     title="landing page"
@@ -74,9 +60,6 @@ def add_student():
             country=form.country.data,
             post_code=form.post_code.data,
             accomodation=form.accomodation.data,
-            ski_id=form.ski_id.data,
-            helmet_id=form.helmet_id.data,
-            pole_id=form.pole_id.data,
             arrival_date=raw_arrival.strftime('%Y-%m-%d'),
             departure_date=raw_departure.strftime('%Y-%m-%d')
         )
@@ -86,7 +69,6 @@ def add_student():
         session['known'] = False
         session['name'] = form.first_name.data + ' ' + form.last_name.data
         return redirect(url_for('students'))
-    form.update_choices()
     return render_template('add_student.html', form=form)
 
 
@@ -206,35 +188,10 @@ class AddStudentForm(FlaskForm):
                                 ], 
                                 validators=[DataRequired()])
 
-    ski_id = SelectField('Ski', choices=[], validators=[DataRequired()])
-    helmet_id = SelectField('Helmet', choices=[], validators=[DataRequired()])
-    pole_id = SelectField('Poles', choices=[], validators=[DataRequired()])
-
     submit = SubmitField('Submit')
 
     def __init__(self, *args, **kwargs):
         super(AddStudentForm, self).__init__(*args, **kwargs)
-        self.update_choices() 
-
-    def update_choices(self):
-        subquery = db.session.query(Student.ski_id).filter(Student.ski_id.isnot(None)).subquery()
-        self.ski_id.choices = [
-            (ski.ski_id, f"({ski.ski_id}) {ski.brand} - {ski.modell} - Length: {ski.length}")
-            for ski in Ski.query.filter(~Ski.ski_id.in_(subquery)).all()
-        ]
-
-        subquery = db.session.query(Student.helmet_id).filter(Student.helmet_id.isnot(None)).subquery()
-        self.helmet_id.choices = [
-            (helmet.helmet_id, f"({helmet.helmet_id}) {helmet.brand} - Size: {helmet.size}")
-            for helmet in Helmet.query.filter(~Helmet.helmet_id.in_(subquery)).all()
-        ]
-
-        subquery = db.session.query(Student.pole_id).filter(Student.pole_id.isnot(None)).subquery()
-        self.pole_id.choices = [
-            (poles.poles_id, f"({poles.poles_id}) {poles.brand} - Length: {poles.length}")
-            for poles in Pole.query.filter(~Pole.poles_id.in_(subquery)).all()
-        ]
-
 
 class AddStudentCourse(FlaskForm):
     course_id = SelectField('Course', choices=[], validators=[DataRequired()])
@@ -328,7 +285,6 @@ class EditStudentForm(FlaskForm):
         ]
 
 
-        
 
 #Other Functions
 def calculate_adult(birthdate):
