@@ -28,7 +28,7 @@ HAVING COUNT(DISTINCT c.Area) = (
     FROM AREA
 );
 
-/*Retrieve the top three areas with the highest number of enrolled students in courses. Write the sql query.*/
+/*Retrieve the top three areas with the highest number of enrolled students in courses.*/
 --This query involves calculating the 10th percentile of the salaries in the EMPLOYEE table, filtering the employees with salaries 
 --in the top 10%, and calculating the average salary of those employees.
 
