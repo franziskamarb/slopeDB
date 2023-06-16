@@ -99,6 +99,9 @@ CREATE TABLE STUDENT
     FOREIGN KEY (Pole_id) REFERENCES POLES (Poles_id) 
 );
 
+CREATE INDEX idx_last_name ON STUDENT (Last_Name);
+
+
 CREATE TABLE AREA
 (
     Area_id character varying NOT NULL,
@@ -112,6 +115,8 @@ CREATE TABLE AREA
     PRIMARY KEY (Area_id)
 );
 
+CREATE INDEX idx_name ON AREA (Name);
+
 CREATE TABLE SHUTTLE
 (
     Shuttle_name character varying,
@@ -122,6 +127,8 @@ CREATE TABLE SHUTTLE
     Area_id character varying,
     FOREIGN KEY (Area_id) REFERENCES AREA (Area_id)
 );
+
+CREATE INDEX idx_type ON SHUTTLE (Type);
 
 CREATE TABLE COURSE
 (

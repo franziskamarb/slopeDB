@@ -1,4 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy 
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Index 
 from flask import Flask
 from app import db
 
@@ -96,6 +97,10 @@ class Student(db.Model):
     helmet = db.relationship('Helmet')
     pole = db.relationship('Pole')
 
+    __table_args__ = (
+        Index('idx_last_name', 'last_name'),
+    )
+
 
 class Area(db.Model):
     __tablename__ = 'area'
@@ -109,6 +114,10 @@ class Area(db.Model):
     closing_time = db.Column(db.Time)
     magic_carpet = db.Column(db.Boolean)
 
+    __table_args__ = (
+        Index('idx_name', 'name'),
+    )
+
 
 class Shuttle(db.Model):
     __tablename__ = 'shuttle'
@@ -120,6 +129,10 @@ class Shuttle(db.Model):
     capacity = db.Column(db.BigInteger)
     area_id = db.Column(db.String, db.ForeignKey('area.area_id'))
     area = db.relationship('Area')
+
+    __table_args__ = (
+        Index('idx_type', 'type'),
+    )
 
 
 class Course(db.Model):
