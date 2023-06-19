@@ -4,6 +4,23 @@
 
 {% block head %}
 {{ super() }}
+<style>
+
+    .navbar-inverse {
+        background-color: white;
+        border-color: white;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: black;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover,
+    .navbar-inverse .navbar-nav > li > a:focus {
+        color: black;
+        background-color: transparent;
+    }
+</style>
 {% endblock %}
 
 {% block navbar %}
@@ -16,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/Students">SlopeDB</a>
+            <a class="navbar-brand" href="/students">SlopeDB</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -45,3 +62,4 @@
 {% block scripts %}
 {{ super() }}
 {% endblock %}
+
