@@ -2,7 +2,7 @@
 --This query employs a subquery, a join, and an aggregate function to calculate the average number of courses across all areas 
 --and retrieves the areas where the number of courses is higher than the average.
 
-SELECT a.Country, a.City
+SELECT a.Country, a.Name as Area_Name
 FROM AREA a
 JOIN COURSE c ON a.Area_id = c.Area
 GROUP BY a.Area_id, a.Country, a.City
@@ -18,6 +18,7 @@ HAVING COUNT(c.Course_id) > (
 /* Retrieve the names of employees who have instructed courses in all available areas.*/
 --This query utilizes a nested query, a join, and a set operator to find the names of employees who have instructed courses in all 
 --available areas by comparing the distinct areas they have instructed with the distinct areas in the AREA table.
+--There are no Employees that instruct a course in every area, therefore we get no results through this query
 
 SELECT e.First_Name, e.Last_Name
 FROM EMPLOYEE e
@@ -59,12 +60,13 @@ SELECT e.First_Name, e.Last_Name
 FROM EMPLOYEE e
 JOIN COURSE c1 ON e.Employee_id = c1.Employee_id
 JOIN COURSE c2 ON e.Employee_id = c2.Employee_id
-WHERE YEAR(c2.Start_date) = YEAR(c1.Start_date) + 1;
+WHERE EXTRACT(Year FROM c2.Start_date) = Extract(YEAR FROM c1.Start_date) + 1;
 
-/*Find the areas with the most diverse range of difficulty levels in their courses.*/
+
+/*Find the area with the most diverse range of difficulty levels in their courses.*/
 --This query requires joining the AREA and COURSE tables, grouping by the area, counting the distinct difficulty levels, and selecting the 
 --areas with the highest count of distinct difficulty levels.
-SELECT a.Name AS Area_Name, COUNT(DISTINCT c.Difficulty_Level) AS Difficulty_Level_Count
+SELECT a.Name AS Area_Name, COUNT(DISTINCT c.Course_Level) AS Difficulty_Level_Count
 FROM AREA a
 JOIN COURSE c ON a.Area_id = c.Area
 GROUP BY a.Name
@@ -92,25 +94,16 @@ JOIN AREA ar ON c.Area = ar.Area_id
 JOIN SHUTTLE sh ON ar.Area_id = sh.Area_id;
 WHERE e.City IN ('Munich')
 
-/*Find the employees who have instructed courses in all areas available and have the highest average student rating.*/
---This query requires joining the EMPLOYEE, COURSE, and COURSE_STUDENT tables, grouping by the employee, calculating the average student rating, 
---and selecting the employees who have instructed courses in all areas and have the highest average rating.
+/*Find the average Salary from every Area*/
+--This query requires joining the EMPLOYEE, SALARY COURSE, and AREA tables, grouping by the Area_id, calculating the average salary, 
+--and selecting the area_id and their average salary
 
-SELECT e.First_Name, e.Last_Name, AVG(cs.Rating) AS Average_Student_Rating
+SELECT a.Area_id, ROUND(AVG(sa.salary), 2) AS average_salary
 FROM EMPLOYEE e
+JOIN SALARY sa ON e.Salary_Group = sa.Salary_Group
 JOIN COURSE c ON e.Employee_id = c.Employee_id
-JOIN COURSE_STUDENT cs ON c.Course_id = cs.COURSE_Course_id
-WHERE c.Area IN (
-    SELECT DISTINCT Area_id
-    FROM AREA
-)
-GROUP BY e.Employee_id
-HAVING COUNT(DISTINCT c.Area) = (
-    SELECT COUNT(DISTINCT Area_id)
-    FROM AREA
-)
-ORDER BY Average_Student_Rating DESC
-LIMIT 1;
+JOIN AREA a ON c.Area = a.Area_id
+GROUP BY a.Area_id;
 
 /*Retrieve the names of the students who have rented all available equipment (skis, helmets, and poles).*/
 --This query involves joining the STUDENT, SKI, HELMETS, and POLES tables, checking for non-null values in the equipment foreign key columns, and 
