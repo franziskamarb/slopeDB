@@ -74,25 +74,27 @@ ORDER BY Difficulty_Level_Count DESC
 LIMIT 1;
 
 /*Find all information about the student who lives in Munich and all information belonging to the student*/
-SELECT e.First_Name AS Employee_First_Name, e.Last_Name AS Employee_Last_Name,
-       a.Name AS Accommodation_Name,
-       s.First_Name AS Student_First_Name, s.Last_Name AS Student_Last_Name,
+SELECT s.First_Name AS Student_First_Name, s.Last_Name AS Student_Last_Name,
        sk.Modell AS Ski_Modell, sk.Brand AS Ski_Brand,
        h.Brand AS Helmet_Brand, h.Size AS Helmet_Size,
        p.Brand AS Poles_Brand, p.Length AS Poles_Length,
        ar.Name AS Area_Name,
        sh.Shuttle_name,
-       c.Course_level, c.Start_date, c.End_date
-FROM EMPLOYEE e
-JOIN ACCOMODATION a ON e.Country = a.Country AND e.City = a.City
-JOIN STUDENT s ON e.Employee_id = s.Student_id
+       c.Course_level, 
+       e.First_Name as Instructor_First_Name, e.Last_Name as Instructor_Last_Name,
+       c.Start_date as Course_Start_Date, 
+       c.End_date as Course_End_date, s.Arrival_Date, s.Departure_Date
+FROM STUDENT s
+JOIN ACCOMODATION a ON s.accomodation = a.accomodation_id
 JOIN SKI sk ON s.Ski_id = sk.Ski_id
 JOIN HELMETS h ON s.Helmet_id = h.Helmet_id
 JOIN POLES p ON s.Pole_id = p.Poles_id
-JOIN COURSE c ON e.Employee_id = c.Employee_id
+JOIN COURSE_STUDENT cs ON cs.student_student_id = s.student_id
+JOIN COURSE c ON c.course_id = cs.course_course_id
 JOIN AREA ar ON c.Area = ar.Area_id
-JOIN SHUTTLE sh ON ar.Area_id = sh.Area_id;
-WHERE e.City IN ('Munich')
+JOIN SHUTTLE sh ON ar.Area_id = sh.Area_id
+JOIN EMPLOYEE e ON e.employee_id = c.Employee_id
+WHERE s.City = 'Munich'
 
 /*Find the average Salary from every Area*/
 --This query requires joining the EMPLOYEE, SALARY COURSE, and AREA tables, grouping by the Area_id, calculating the average salary, 
