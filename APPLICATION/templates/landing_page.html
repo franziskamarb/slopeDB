@@ -1,10 +1,43 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}Slope DB{% endblock %}
+{% block title %}Slope DB - Home{% endblock %}
 
 {% block page_content %}
-<div class="page-header">
-    <h1>Landing Page</h1> 
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to SlopeDB</h1>
+    <p class="lead">Your Central Database for Ski Resort Management</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">About SlopeDB</h3>
+                    <h4 class="card-subtitle mb-3 text-muted">A Comprehensive Ski Resort Database</h4>
+                    <ul class="list-group list-group-flush">
+                        <h4><li class="list-group-item">SlopeDB is a comprehensive database system designed to collect and manage data for a ski resort. It provides a centralized platform for storing and organizing information related to students, courses, and employees.</li></h4>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Features</h3>
+                    <ul class="list-group list-group-flush">
+                        <h4><li class="list-group-item">Create and manage student profiles</li></h4>
+                        <h4><li class="list-group-item">View and manage courses</li></h4>
+                        <h4><li class="list-group-item">Explore employee information</li></h4>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
+
+
+
+
