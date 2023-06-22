@@ -273,13 +273,13 @@ INSERT INTO SALARY
 		  ,('Q', 90.000);
 
 INSERT INTO AREA
-	VALUES ('GF', 'Germany', 'Fellhorn', 'Oberstdorf', 'Medium', '8:30:00', '16:30:00', 'No'),
-		   ('AK', 'Austria', 'Kanzelwand', 'Riezlern', 'Medium', '8:30:00', '16:00:00', 'Yes'),
-		   ('GN', 'Germany', 'Nebelhorn', 'Oberstdorf', 'Expert', '8:30:00', '16:40:00', 'Yes'),
-		   ('AI', 'Austria', 'Ifen','Hirschegg', 'Medium', '8:30:00', '16:00:00', 'Yes'),
-		   ('AW', 'Austria', 'Walmendingerhorn', 'Mittelberg', 'Medium', '8:30:00', '16:00:00', 'No'),
-		   ('GS', 'Germany', 'Söllereck', 'Oberstdorf', 'Beginner', '8:30:00', '16:00:00', 'Yes'),
-		   ('AH', 'Austria', 'Heuberg', 'Hirschegg', 'Beginner', '8:30:00', '16:00:00', 'Yes');
+	VALUES ('GF', 'Germany','Oberstdorf', 'Fellhorn',  'Medium', '8:30:00', '16:30:00', 'No'),
+		   ('AK', 'Austria', 'Kanzelwand',  'Medium', '8:30:00', '16:00:00', 'Yes'),
+		   ('GN', 'Germany','Oberstdorf', 'Nebelhorn',  'Expert', '8:30:00', '16:40:00', 'Yes'),
+		   ('AI', 'Austria', 'Hirschegg','Ifen', 'Medium', '8:30:00', '16:00:00', 'Yes'),
+		   ('AW', 'Austria', 'Mittelberg','Walmendingerhorn',  'Medium', '8:30:00', '16:00:00', 'No'),
+		   ('GS', 'Germany', 'Oberstdorf', 'Söllereck', 'Beginner', '8:30:00', '16:00:00', 'Yes'),
+		   ('AH', 'Austria', 'Hirschegg','Heuberg',  'Beginner', '8:30:00', '16:00:00', 'Yes');
 
 INSERT INTO EMPLOYEE
 	VALUES ('E1', 'Ludwig', 'Maier', 'Ski School Director', 'O', 'DSV Diplom-Instructor', 'Hauptstraße', '1', 'Oberstdorf','Germany', '87561', '1985-05-10', 36, 'M', '123456789')
