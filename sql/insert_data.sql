@@ -274,10 +274,10 @@ INSERT INTO SALARY
 
 INSERT INTO AREA
 	VALUES ('GF', 'Germany','Oberstdorf', 'Fellhorn',  'Medium', '8:30:00', '16:30:00', 'No'),
-		   ('AK', 'Austria', 'Kanzelwand',  'Medium', '8:30:00', '16:00:00', 'Yes'),
+		   ('AK', 'Austria', 'Riezlern', 'Kanzelwand', 'Medium', '8:30:00', '16:00:00', 'Yes'),
 		   ('GN', 'Germany','Oberstdorf', 'Nebelhorn',  'Expert', '8:30:00', '16:40:00', 'Yes'),
-		   ('AI', 'Austria', 'Hirschegg','Ifen', 'Medium', '8:30:00', '16:00:00', 'Yes'),
-		   ('AW', 'Austria', 'Mittelberg','Walmendingerhorn',  'Medium', '8:30:00', '16:00:00', 'No'),
+		   ('AI', 'Austria', 'Hirschegg', 'Ifen', 'Medium', '8:30:00', '16:00:00', 'Yes'),
+		   ('AW', 'Austria', 'Mittelberg', 'Walmendingerhorn',  'Medium', '8:30:00', '16:00:00', 'No'),
 		   ('GS', 'Germany', 'Oberstdorf', 'Söllereck', 'Beginner', '8:30:00', '16:00:00', 'Yes'),
 		   ('AH', 'Austria', 'Hirschegg','Heuberg',  'Beginner', '8:30:00', '16:00:00', 'Yes');
 
